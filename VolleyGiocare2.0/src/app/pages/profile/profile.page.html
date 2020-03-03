@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">{{'PROFILE_PAGE' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item  class="animated fadeInUp ion-no-padding">
+    <ion-avatar margin-start class="item-avatar">
+      <img src="/assets/images/ScxLuwT2_400x400.jpg">
+    </ion-avatar>
+    <ion-label class="ion-text-center">
+      <h3><b>Prova</b></h3>
+      <p>Descrizione giocatore</p>
+    </ion-label>
+  </ion-item>
+  <ion-button size="small" expand="block" shape="round" color="quainter">Modifica il profilo</ion-button>
+  <!--<div class="ion-text-center"><ion-text margin-start color="tertiary"> <b>{{'SCHEDA GIOCATORE' | translate}}</b> </ion-text></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text class="text1" color="primary" margin-bottom><p> <b>Campo preferito:</b> </ion-text>
+        <ion-text class="ion-no-margin"> <p>Campo Canada</p></ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text color="primary"> <p> <b>Partite giocate: </b> </p> </ion-text>
+        <ion-text class="text10"> <p> <b> 29 </b></p></ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>-->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div margin-start>
+          <ion-text color="primary"> <p> <b>Ruolo preferito: </b></p> </ion-text>
+          <ion-chip color="quainter" margin-top>
+            <ion-avatar>
+              <img src="/assets/images/martello.jpg">
+            </ion-avatar>
+            <ion-label>{{u1.ruolo}}</ion-label>
+          </ion-chip> </div>
+      </ion-col>
+      <ion-col>
+        <div margin-start padding-bottom>
+          <ion-text color="primary"> <p> <b>Partite giocate: </b></p> </ion-text></div>
+        <div margin-start>
+          <ion-text class="text15"> <p no-margin no-padding> <b> 29 </b></p></ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--<ion-item lines="none">
+    <ion-button size="small" color="quainter">Modifica il profilo</ion-button>
+    </ion-item>-->
+  <br><br>
+  <ion-label margin-start color="light"> <b> Valutazioni e recensioni</b></ion-label>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <div margin-start="50px">
+            <p ion-text margin-start class="text30" >{{numero}}</p>
+            <ion-icon *ngIf="index==0" name="star-outline"></ion-icon><ion-icon *ngIf="index>0&&index<1" name="star-half"></ion-icon><ion-icon *ngIf="index>1||index==1" name="star"></ion-icon>
+            <ion-icon *ngIf="index<1" name="star-outline"></ion-icon><ion-icon *ngIf="index>1&&index<2" name="star-half"></ion-icon><ion-icon *ngIf="index>2||index==2" name="star"></ion-icon>
+            <ion-icon *ngIf="index<2" name="star-outline"></ion-icon><ion-icon *ngIf="index>2&&index<3" name="star-half"></ion-icon><ion-icon *ngIf="index>3||index==3" name="star"></ion-icon>
+            <ion-icon *ngIf="index<3" name="star-outline"></ion-icon><ion-icon *ngIf="index>3&&index<4" name="star-half"></ion-icon><ion-icon *ngIf="index>4||index==4" name="star"></ion-icon>
+            <ion-icon *ngIf="index<4" name="star-outline"></ion-icon><ion-icon *ngIf="index>4&&index<5" name="star-half"></ion-icon><ion-icon *ngIf="index>5||index==5" name="star"></ion-icon>
+            <div class="ion-no-margin" class="ion-no-padding" class="ion-text-center">
+              <p class="text08" >recensioni: {{i}}</p>
+            </div>
+          </div>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ol class="ion-no-padding">
+          <li value="5"> <ion-progress-bar [value]="cinque" color="light"></ion-progress-bar></li>
+          <li value="4"> <ion-progress-bar [value]="quattro" color="light"></ion-progress-bar></li>
+          <li value="3"> <ion-progress-bar [value]="tre" color="light"></ion-progress-bar></li>
+          <li value="2"> <ion-progress-bar [value]="due" color="light"></ion-progress-bar></li>
+          <li value="1"> <ion-progress-bar [value]="uno" color="light"></ion-progress-bar></li>
+        </ol>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list id="list">
+    <ion-list-header>
+      Commenti recenti
+    </ion-list-header>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="/assets/images/ScxLuwT2_400x400.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2><b>Mario</b></h2>
+        <h3>Buon Giocatore!</h3>
+        <p>Nella partita ha giocato bene...</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="/assets/images/ScxLuwT2_400x400.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2><b>Genoveffa</b></h2>
+        <h3>Deve allenarsi meglio!</h3>
+        <p>Nella partita...</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="/assets/images/opposto.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2><b>Barbarella</b></h2>
+        <h3>Invitata a Pomeriggio 5!</h3>
+        <p>Tutti la devono conoscere...</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="/assets/images/barbara.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2><b>Barbarella</b></h2>
+        <h3>Invitata a Pomeriggio 5!</h3>
+        <p>Tutti la devono conoscere...</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="/assets/images/ScxLuwT2_400x400.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2><b>Luigi</b></h2>
+        <h3>Complimenti!</h3>
+        <p>Continua cosi..</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll threshold="100px" id="infinite-scroll" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+
+</ion-content>

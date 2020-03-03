@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">{{'DETAIL_PAGE' | translate}}</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/home" icon="arrow-round-back"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card> <!--  -->
+        <ion-card-header>
+            <ion-card-title color="dark"> Titolo: </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+
+        Descrizione: {{m.descrizione}}
+
+        Numero giocatori: {{m.numero_giocatori}}
+        </ion-card-content>
+    </ion-card>
+
+
+    <div class="dettagli" >
+        <ion-button *ngIf="m.numero_giocatori > 0 " icon-left size="medium" expand="full" shape="round" color="primary" (click)="onPartecipa()"  tappable>
+            <ion-icon name="heart"></ion-icon>
+            Partecipa
+        </ion-button>
+    </div>
+
+    <div margin-top="20px">
+        <ion-button *ngIf="m.numero_giocatori <= 0 " icon-left size="medium" expand="full" shape="round" color="primary"   disabled>
+            <ion-icon ></ion-icon>
+            Rimuovi partecipazione
+        </ion-button>
+    </div>
+
+
+</ion-content>
+

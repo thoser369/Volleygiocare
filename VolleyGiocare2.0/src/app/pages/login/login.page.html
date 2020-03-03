@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">{{ 'LOGIN_PAGE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="animated fadeIn login auth-page ion-padding">
+    <div class="theme-bg"></div>
+    <div class="auth-content">
+
+        <!-- Logo -->
+        <div  class="animated fadeInDown ion-padding-horizontal ion-text-center">
+            <div class="logo"></div>
+        </div>
+    </div>
+
+
+    <!-- Login form -->
+    <form [formGroup]="loginFormModel" class="list-form">
+        <ion-item  class="animated fadeInUp ion-no-padding">
+            <ion-label position="floating">
+                <ion-icon name="contact" item-start></ion-icon>{{ 'EMAIL' | translate }}</ion-label>
+            <ion-input color="dark" type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <p class="text08" *ngIf="loginFormModel.get('email').touched && loginFormModel.get('email').invalid">
+            <ion-text color="danger" >{{ 'EMAIL_REQUIRED' | translate }}</ion-text>
+        </p>
+        <ion-item  class="animated fadeInUp ion-no-padding">
+            <ion-label position="floating">
+                <ion-icon name="lock" item-start></ion-icon>{{ 'PASSWORD' | translate }}</ion-label>
+            <ion-input color="dark" type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="loginFormModel.get('password').touched && loginFormModel.get('password').invalid">
+            <ion-text color="danger">{{ 'PASSWORD_REQUIRED' | translate }}</ion-text>
+        </p>
+        <div padding-top="30px" margin-top="20px">
+            <ion-button icon-left size="medium" expand="full" shape="round" color="tertiary" (click)="onLogin()" [disabled]="!loginFormModel.valid" tappable>
+                <ion-icon name="log-in"></ion-icon>
+                {{ 'LOGIN_BUTTON' | translate }}
+            </ion-button>
+        </div>
+
+        <div margin-top="20px">
+            <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onReg()"  tappable>
+                <ion-icon name="create"></ion-icon>
+                {{ 'REGISTRATION_BUTTON' | translate }}
+            </ion-button>
+        </div>
+
+
+    </form>
+
+</ion-content>

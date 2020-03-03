@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">{{'SETTINGS_PAGE' | translate}}</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item class="ion-margin">
+        <ion-label>{{'LINGUA' | translate}}</ion-label>
+        <ion-select placeholder="Seleziona lingua" (ionChange)="changeL($event)">
+            <ion-select-option value="it">Italiano</ion-select-option>
+            <ion-select-option value="en">English</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+
+</ion-content>

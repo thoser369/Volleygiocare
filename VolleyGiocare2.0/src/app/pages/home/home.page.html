@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">{{'HOME_PAGE' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <ion-searchbar class="ion-padding-top"  animated="true" autocorrect="on" ></ion-searchbar>
+
+    <ion-refresher slot="fixed" (ionRefresh)="reload($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown"
+                               refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+
+        <!--<div *ngFor="let s of (matches$ | async) | keyvalue">
+            <h3> {{s.key}}</h3>
+            <ion-card>
+                <ion-item *ngFor='let obj of s.value'>
+                    <ion-label>
+                        <h1>{{ obj.k}}</h1>
+                    </ion-label>
+                </ion-item>
+            </ion-card>
+        </div>-->
+        <ion-card *ngFor="let m of (matches$ | async) | keyvalue" class="back ion-margin" >
+            <ion-card-header>
+                <ion-card-subtitle *ngFor="let obj of m.value.organizzatore"> <div ><ion-icon name="person" ></ion-icon>{{" " + obj['name'] + " " +obj['surname']}}</div> </ion-card-subtitle>
+                <ion-card-title> {{m.value.titolo}} </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                {{(m.value.data_ora | date:'dd/MM/yyyy' )+ " " +( m.value.ora | date: 'HH:mm')}}
+                <ion-row class="ion-no-padding">
+                    <ion-col class="ion-text-left ion-padding-start=30px">
+                        <ion-button class="ion-float-end" color="primary" icon-start size="small" [routerLink]="['/details', m.value.id]" routerDirection="forward" >
+                            <ion-icon name='create'></ion-icon>
+                            {{'MATCH_DETAIL' | translate}}
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+
+        </ion-card>
+    </ion-list>
+
+
+    <!-- fab placed to the top end -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="goToNew()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>

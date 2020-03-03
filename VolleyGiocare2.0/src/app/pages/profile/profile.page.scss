@@ -1,0 +1,28 @@
+section {
+    margin-top: 1em;
+    margin-bottom: 2.5em;
+}
+ion-icon{
+    color: var(--ion-color-light);
+}
+ol li {list-style-type: decimal;
+    margin-right: 2em;
+    margin-top: 5%;
+}
+ion-progress-bar {
+    padding-top: 10px;
+    margin: 10px 0;
+    color: var(--ion-color-light);
+}
+ion-button{
+    --color: #000000;
+    --color-activated: #000000;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+p {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    font-family: Calibri;
+}

@@ -1,0 +1,41 @@
+ <ion-app>
+    <ion-split-pane>
+        <ion-menu *ngIf="isLoggedIn$ | async">
+            <ion-header class="ion-text-center">
+                <ion-toolbar color="primary">
+
+                    <ion-avatar slot="start" class="foto ion-padding-start"  >
+                        <img src="/assets/images/martello.jpg">
+
+                    </ion-avatar>
+
+
+                    <ion-text  class="ion-text-center text10 ion-padding-start ion-margin-start"  color="white"  slot="start"><strong>{{(u.nome  | uppercase) + " " + (u.cognome | uppercase) }}</strong>
+                    </ion-text>
+
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content>
+
+                <ion-list class="ion-margin-top" >
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+                        <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                            <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                            <ion-label>{{p.title | translate}}</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+
+                    <ion-item (click)="logout()" routerLink="/login">
+                    <ion-icon slot="start" name="key"></ion-icon>
+                    <ion-label>Logout</ion-label>
+                    </ion-item>
+
+                </ion-list>
+
+            </ion-content>
+
+        </ion-menu>
+        <ion-router-outlet main></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>
