@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->integer('media_feedback')->nullable();
             $table->string('password');
+            $table->string('token');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -8,6 +8,8 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -24,36 +26,33 @@ class AuthController extends Controller
                 'message' => 'Unauthorized'
             ], 401);
         $user = $request->user();
-        $tokenResult = $user->createToken('Personal Access Token');
-        $token = $tokenResult->token;
-        if ($request->remember_me)
-            $token->expires_at = Carbon::now()->addWeeks(1);
-        $token->save();
-        return response()->json(/*[
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse(
-                $tokenResult->token->expires_at
-            )->toDateTimeString()
-        ]*/
+        $token = Str::random(32);
+        DB::table('users')->where('email', $request->input('email'))->update(['token' => "$token"]);
 
-
-            [
-                'nome' => $user->name,
+        return response(
+            ['nome' => $user->name,
                 'cognome' => $user->surname,
-                'email' => $user->email,
-                'password' => $user->password,
-                'ruolo' => $user->favourite_role,
-                'id' => $user->id
-            ], 200);
+                'id' => $user->id,
+                'partite_totali' => $user->partite_totali,
+                'descrizione' => $user->descrizione,
+                'email' => $user -> email,
+
+
+            ], 200)->withHeaders([ 'token' => $token]);
     }
+
+
+
+
+
+
 
     public function register(Request $request)
     {
         $request->validate([
             'fName' => 'required|string',
             'lName' => 'required|string',
-            'email' => 'required|string|email|unique:users',
+            'email' => 'required|email|unique:users',
             'password' => 'required|string',
             'phone' => 'required|string',
             'favourite_role' => 'required|string'

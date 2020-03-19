@@ -20,6 +20,7 @@ export const URL = {
     NM : URL_BASE + '/newM',
     LOGOUT: URL_BASE + '/auth/logout',
     PARTECIPA: URL_BASE + '/partecipa',
-    PARTECIPAZIONE: URL_BASE + '/aggiunta'
+    PARTECIPAZIONE: URL_BASE + '/aggiunta',
+    MIEPARTITE: URL_BASE + '/mymatches',
 
 };

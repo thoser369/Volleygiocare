@@ -19,15 +19,14 @@ export class TokenInterceptor implements HttpInterceptor {
         // Get the auth token from the service.
         const authToken = this.utenteService.getAuthToken();
         if (authToken !== null && authToken !== undefined && authToken !== '') {
-            console.log('adding token into header');
+            console.log('Token aggiunto');
             // Clone the request and replace the original headers with
             // cloned headers, updated with the authorization.
             const authReq = req.clone({
-                headers: req.headers.set(X_AUTH, `Bearer ${authToken}`)
+                headers: req.headers.set(X_AUTH, `${authToken}`)
             });
             return next.handle(authReq).pipe(
                 catchError(err => {
-                    this.showError(err);
                     return EMPTY;
                 })
             );
@@ -37,22 +36,5 @@ export class TokenInterceptor implements HttpInterceptor {
 
     }
 
-    async showError(err: HttpErrorResponse) {
-        const errorMessage = `Status: ${err.status}, Message: ${err.message}`;
 
-        const alert = await this.alertController.create({
-            header: 'Errore',
-            message: errorMessage,
-            buttons: [
-                {
-                    text: 'OK',
-                    handler: () => {
-                        this.navController.navigateRoot('login');
-                    }
-                }
-            ]
-        });
-
-        await alert.present();
-    }
 }

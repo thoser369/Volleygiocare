@@ -32,7 +32,6 @@ export class UtenteService {
     constructor(private http: HttpClient, private storage: Storage) {
 
         this.storage.get(AUTH_TOKEN).then((token) => {
-           // console.log(token);
             this.authToken = token;
             if (token !== null && token !== undefined && token !== '') {
                 this.loggedIn$.next(true);
@@ -45,11 +44,10 @@ export class UtenteService {
 
     }
 
-    login(loginAccount: LoginAccount): Observable<Utente> {
-        const params = new HttpParams()
-            .set('email', loginAccount.email)
-            .set('password', loginAccount.password);
 
+
+
+    login(loginAccount: LoginAccount): Observable<Utente> {
         return this.http.post<Utente>(URL.LOGIN, loginAccount, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
                 const token = resp.headers.get(X_AUTH);
@@ -110,7 +108,7 @@ export class UtenteService {
         console.log(params.get('favourite_role'));*/
 
         // const signUpUrl = `${URL.SIGNUP}/?${params}`;
-        return this.http.post<Utente>(URL.SIGNUP, account, {observe: 'response'}).pipe(
+        return this.http.post<Utente>(URL.SIGNUP, params, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
                 // console.log(resp);
 

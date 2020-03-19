@@ -31,6 +31,10 @@ export class MatchService {
     constructor(private http: HttpClient, private utenteService: UtenteService) {
     }
 
+    miePartite(): Observable<Partita[]> {
+        return this.http.get<Partita[]>(URL.MIEPARTITE);
+    }
+
 
     list(idU): Observable<Partita[]> {
         const apiUt = `${URL.MATCHES}/${idU}`;
@@ -44,13 +48,11 @@ export class MatchService {
 
 
     create(nm: NewMatch) {
-
         const p = new Date(nm.data_ora);
         const o = new Date(nm.ora);
 
-
         const params = new HttpParams()
-        // .set('org', nm.org)
+            // .set('org', nm.org)
             .set('titolo', nm.titolo)
             .set('luogo', nm.luogo)
             .set('numero_giocatori', nm.numero_giocatori)
@@ -80,6 +82,5 @@ export class MatchService {
         console.log('chiamata');
 
     }
-
 
 }

@@ -27,3 +27,5 @@ Route::get('/api/miepartite', 'matchesController@my_Matches');
 
 Route::post('/api/newM', 'matchesController@addMatch');
 
+Route::get('/api/mymatches', 'matchesController@my_Matches');
+

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Match;
+use Carbon\Carbon;
 use function foo\func;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,24 +13,24 @@ class matchesController extends Controller
 
     function listmatches($idU) {
 
-        $matches= DB::table('match')
-            ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora','ora')
-            ->join('partecipation','match.organizzatore', '=','partecipation.id_giocatore')
-            ->whereNotIn('match.id', function($query) use ($idU){
-                $query->select('id_partita')
-                    ->from('partecipation')
-                    ->where('id_giocatore', '=', $idU);
-            })
-            ->orderByDesc('id')
-            ->distinct()
-            ->get();
+         $matches= DB::table('match')
+             ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora','ora')
+             ->join('partecipation','match.organizzatore', '=','partecipation.id_giocatore')
+             ->whereNotIn('match.id', function($query) use ($idU){
+                 $query->select('id_partita')
+                     ->from('partecipation')
+                     ->where('id_giocatore', '=', $idU);
+             })
+             ->orderByDesc('id')
+             ->distinct()
+             ->get();
 
-        $result = $matches->map(function ($item, $key) {
-            $item->organizzatore = DB::table('users')
-                ->where('id', '=', $item->organizzatore)
-                ->get();
-            return $item;
-        });
+         $result = $matches->map(function ($item, $key) {
+             $item->organizzatore = DB::table('users')
+                 ->where('id', '=', $item->organizzatore)
+                 ->get();
+             return $item;
+         });
 
 
 
@@ -100,13 +101,34 @@ class matchesController extends Controller
 
 
 }
-    public function my_Matches()  {
-        $partitemie= DB::table('match')
-            ->join('users', 'match.organizzatore','=','users.id')
-            ->join('partecipation', 'match.id', '=', 'partecipation.id_partita')
-            ->get();
+    public function my_Matches(Request $request)  {
+        {
+            $access_token = $request->header('token');
 
-        return $partitemie->toJson();
+            $idUtente = DB::table('users')
+                ->select('id')
+                ->where('users.token', '=', $access_token)
+                ->value('id');
+
+            $partitemie = DB::table('match')
+                ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora')
+                ->join('partecipation', 'match.id', '=', 'partecipation.id_partita')
+                ->where('partecipation.id_giocatore', '=', $idUtente)
+                ->where('match.data_ora', '>=', Carbon::now())
+                ->orderByDesc('match.id')
+                ->distinct()
+                ->get();
+
+            $partitemie->map(function ($item, $key) {
+                $item->organizzatore = DB::table('users')
+                    ->where('id', '=', $item->organizzatore)
+                    ->first();
+                return $item;
+            });
+
+
+            return $partitemie->toJson();
+        }
 
     }
 
