@@ -19,7 +19,7 @@
     <!-- Login form -->
     <form [formGroup]="loginFormModel" class="list-form">
         <ion-item  class="animated fadeInUp ion-no-padding">
-            <ion-label position="floating">
+            <ion-label position="floating" color="primary">
                 <ion-icon name="contact" item-start></ion-icon>{{ 'EMAIL' | translate }}</ion-label>
             <ion-input color="dark" type="email" formControlName="email"></ion-input>
         </ion-item>
@@ -27,7 +27,7 @@
             <ion-text color="danger" >{{ 'EMAIL_REQUIRED' | translate }}</ion-text>
         </p>
         <ion-item  class="animated fadeInUp ion-no-padding">
-            <ion-label position="floating">
+            <ion-label position="floating" color="primary">
                 <ion-icon name="lock" item-start></ion-icon>{{ 'PASSWORD' | translate }}</ion-label>
             <ion-input color="dark" type="password" formControlName="password"></ion-input>
         </ion-item>
