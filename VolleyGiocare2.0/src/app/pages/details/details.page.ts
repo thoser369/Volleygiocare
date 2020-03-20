@@ -5,7 +5,7 @@ import {MatchService} from '../../services/match.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 
 import {UtenteService} from '../../services/utente.service';
-import {NavController} from "@ionic/angular";
+import {NavController} from '@ionic/angular';
 
 
 @Component({

@@ -109,7 +109,7 @@ class matchesController extends Controller
                 ->select('id')
                 ->where('users.token', '=', $access_token)
                 ->value('id');
-
+             
             $partitemie = DB::table('match')
                 ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora')
                 ->join('partecipation', 'match.id', '=', 'partecipation.id_partita')

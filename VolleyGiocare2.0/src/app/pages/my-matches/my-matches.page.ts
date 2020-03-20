@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Partita} from "../../model/partita.model";
-import {Observable} from "rxjs";
-import {MatchService} from "../../services/match.service";
+import {Partita} from '../../model/partita.model';
+import {Observable} from 'rxjs';
+import {MatchService} from '../../services/match.service';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class MyMatchesPage implements OnInit {
 
     private miepartite$: Observable<Partita[]>;
 
-  constructor (
+  constructor(
       private matchService: MatchService) { }
 
     ionViewWillEnter() {
