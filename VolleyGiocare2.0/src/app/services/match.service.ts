@@ -34,6 +34,9 @@ export class MatchService {
     miePartite(): Observable<Partita[]> {
         return this.http.get<Partita[]>(URL.MIEPARTITE);
     }
+    terminate(): Observable<Partita[]> {
+        return this.http.get<Partita[]>(URL.PARTITETERMINATE);
+    }
 
 
     list(idU): Observable<Partita[]> {

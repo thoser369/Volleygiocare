@@ -22,5 +22,6 @@ export const URL = {
     PARTECIPA: URL_BASE + '/partecipa',
     PARTECIPAZIONE: URL_BASE + '/aggiunta',
     MIEPARTITE: URL_BASE + '/mymatches',
+    PARTITETERMINATE: URL_BASE + '/terminated',
 
 };

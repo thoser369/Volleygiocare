@@ -12,12 +12,14 @@ import {MatchService} from '../../services/match.service';
 export class MyMatchesPage implements OnInit {
 
     private miepartite$: Observable<Partita[]>;
+    private terminate$: Observable<Partita[]>;
 
   constructor(
       private matchService: MatchService) { }
 
     ionViewWillEnter() {
         this.miepartite$ = this.matchService.miePartite();
+        this.terminate$ = this.matchService.terminate();
     }
 
   ngOnInit() {

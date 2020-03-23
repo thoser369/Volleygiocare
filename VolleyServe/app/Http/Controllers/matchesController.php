@@ -109,7 +109,7 @@ class matchesController extends Controller
                 ->select('id')
                 ->where('users.token', '=', $access_token)
                 ->value('id');
-             
+
             $partitemie = DB::table('match')
                 ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora')
                 ->join('partecipation', 'match.id', '=', 'partecipation.id_partita')
@@ -129,6 +129,43 @@ class matchesController extends Controller
 
             return $partitemie->toJson();
         }
+
+    }
+
+    public function partite_terminate(Request $request)
+    {
+        $access_token = $request->header('token');
+
+        $idUtente = DB::table('users')
+            ->select('id')
+            ->where('users.token', '=', $access_token)
+            ->value('id');
+
+        $terminate = DB::table('match')
+            ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora')
+            ->join('partecipation', 'match.id', '=', 'partecipation.id_partita')
+            ->where('partecipation.id_giocatore', '=', $idUtente)
+            ->where('match.data_ora', '<', Carbon::now())
+            ->orderByDesc('match.id')
+            ->distinct()
+            ->get();
+
+        $terminate->map(function ($item, $key) {
+            $item->id_organizzatore = DB::table('users')
+                ->where('id', '=', $item->organizzatore)
+                ->first();
+            return $item;
+        });
+
+        $terminate->map(function ($item, $key) {
+            $item->id_tipologia_partita = DB::table('role_type')
+                ->where('id', '=', $item->id_tipologia_partita)
+                ->first();
+
+            return $item;
+        });
+
+        return $terminate->toJson();
 
     }
 

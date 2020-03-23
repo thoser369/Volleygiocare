@@ -29,3 +29,5 @@ Route::post('/api/newM', 'matchesController@addMatch');
 
 Route::get('/api/mymatches', 'matchesController@my_Matches');
 
+Route::get('/api/terminated', 'matchesController@partite_terminate');
+

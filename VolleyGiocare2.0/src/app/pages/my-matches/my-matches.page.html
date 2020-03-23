@@ -7,53 +7,59 @@
     </ion-toolbar>
 </ion-header>
 
+<ion-content>
+<ion-slides>
+    <ion-slide>
+        <div class="titolo">
+            <b>{{'MATCHES_TO_PLAY' | translate}}
+                <div class="icona">
+                    <ion-icon name="arrow-dropright"></ion-icon>
+                </div></b>
+        </div>
 
-    <ion-content>
-        <ion-slides>
-            <ion-slide>
-                <div class="titolo">
-                <b>{{'MATCHES_TO_PLAY' | translate}}
-                    <div class="icona">
-                        <ion-icon name="arrow-dropright"></ion-icon>
-                    </div></b>
-                </div>
+        <ion-card *ngFor="let r of miepartite$ | async">
+            {{r.titolo}} {{r.descrizione}} {{r.luogo}} {{r.tipo}} {{r.organizzatore.id}}
 
-                <ion-card *ngFor="let r of miepartite$ | async">
+        </ion-card>
+        <!--<ion-list>
+            <ion-card class="back cards " *ngFor="let m of miepartite$ |async">
+                <ion-card-title class="text-dark">
+                    <ion-icon name="clipboard"></ion-icon>
+                    {{m.titolo}}
+                </ion-card-title>
+
+                <ion-card-content>
+                    <ion-icon name="calendar" icon="left"></ion-icon>
+                    {{(m.data_ora| date:'dd/MM/yyyy')}}
+                    <ion-icon name="time" class="ion-padding-start"></ion-icon>
+                    {{m.data_ora|date: 'HH:mm'}}
+                    <ion-icon name="globe" class="ion-padding-start"></ion-icon>
+                    {{m.luogo}}
+                    <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
+                    <ion-row class="ion-no-padding">
+                    </ion-row>
+                </ion-card-content>
+
+
+
+            </ion-card>
+        </ion-list>-->
+    </ion-slide>
+
+    <ion-slide>
+        <div class="titolo">
+            <b>{{'MATCHES_ENDED' | translate}}
+                <div class="icona">
+                    <ion-icon name="arrow-dropleft"></ion-icon>
+                </div></b>
+        </div>
+
+                <ion-card *ngFor="let r of terminate$ | async">
                     {{r.titolo}} {{r.descrizione}} {{r.luogo}} {{r.tipo}} {{r.organizzatore.id}}
 
                 </ion-card>
-                <!--<ion-list>
-                    <ion-card class="back cards " *ngFor="let m of miepartite$ |async">
-                        <ion-card-title class="text-dark">
-                            <ion-icon name="clipboard"></ion-icon>
-                            {{m.titolo}}
-                        </ion-card-title>
 
-                        <ion-card-content>
-                            <ion-icon name="calendar" icon="left"></ion-icon>
-                            {{(m.data_ora| date:'dd/MM/yyyy')}}
-                            <ion-icon name="time" class="ion-padding-start"></ion-icon>
-                            {{m.data_ora|date: 'HH:mm'}}
-                            <ion-icon name="globe" class="ion-padding-start"></ion-icon>
-                            {{m.luogo}}
-                            <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
-                            <ion-row class="ion-no-padding">
-                            </ion-row>
-                        </ion-card-content>
-
-
-
-                    </ion-card>
-                </ion-list>-->
-            </ion-slide>
-
-            <ion-slide>
-                <div class="titolo">
-                <b>{{'MATCHES_ENDED' | translate}}
-                    <div class="icona">
-                        <ion-icon name="arrow-dropleft"></ion-icon>
-                    </div>
-                </b>
+                <!--</b>
                 </div>
                 <ion-card>
                     <ion-card-header>
@@ -79,11 +85,7 @@
                     <ion-card-content>
                         Descrizione3
                     </ion-card-content>
-                </ion-card>
+                </ion-card>-->
             </ion-slide>
-
-
-        </ion-slides>
-    </ion-content>
-
-
+</ion-slides>
+</ion-content>
