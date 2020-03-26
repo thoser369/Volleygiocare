@@ -51,6 +51,7 @@ export class UtenteService {
         return this.http.post<Utente>(URL.LOGIN, loginAccount, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
                 const token = resp.headers.get(X_AUTH);
+                console.log(token);
                 this.storage.set(AUTH_TOKEN, token);
                 this.authToken = token;
                 // Utente memorizzato nello storage in modo tale che se si vuole cambiare il

@@ -13,6 +13,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {ReactiveFormsModule} from '@angular/forms';
+import {httpInterceptorProviders} from './interceptors';
 
 export function createTranslateLoader(http: HttpClient ) {
   return new TranslateHttpLoader(http, './assets/i18n/' , '.json');
@@ -27,12 +28,13 @@ export function createTranslateLoader(http: HttpClient ) {
       useFactory: (createTranslateLoader),
       deps: [HttpClient]
     }
-  }), IonicModule.forRoot() , AppRoutingModule, IonicStorageModule.forRoot({
-    name: '__mydb', driverOrder: ['indexeddb', 'sqlite', 'websql']
+  }), IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot({
+    name: 'volleygiocare', driverOrder: ['indexeddb', 'sqlite', 'websql']
   })],
   providers: [
     StatusBar,
     SplashScreen,
+      httpInterceptorProviders,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

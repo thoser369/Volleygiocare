@@ -6,6 +6,7 @@ import {Partita} from '../model/partita.model';
 import {Utente} from '../model/utente.model';
 import {map} from 'rxjs/operators';
 import {UtenteService} from './utente.service';
+import {Feedback} from '../model/feedback.model';
 
 
 export interface NewMatch {
@@ -83,6 +84,26 @@ export class MatchService {
         const apiPart = `${URL.PARTECIPAZIONE}/${idG}/${idP}`;
         return this.http.get<Partita>(apiPart);
         console.log('chiamata');
+
+    }
+
+    lasciaFeedback(feedback: Feedback) {
+        const params = new HttpParams()
+            .set('commento', feedback.commento)
+            .set('voto', feedback.voto)
+            .set('id_giocatore_votato', feedback.id_giocatore_votato.id.toString())
+            .set('id_partita', feedback.id_partita.id.toString());
+
+        return this.http.post(URL.VOTAZIONE, params, {observe: 'response'});
+    }
+
+    checkFeedback(partita: Partita, giocatore: Utente): Observable<Feedback> {
+        const params = new HttpParams()
+            .set('id_giocatore', giocatore.id.toString())
+            .set('id_partita', partita.id.toString());
+
+        return this.http.post<Feedback>(URL.CHECKFEEDBACK, params);
+
 
     }
 

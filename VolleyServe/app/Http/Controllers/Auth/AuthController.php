@@ -63,7 +63,6 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->phone = $request->phone;
-        $user->token = "null";
         $user->favourite_role = $request->favourite_role;
         $user->save();
         return response()->json([

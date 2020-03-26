@@ -1,7 +1,7 @@
 
 export const LINGUA = 'lingua';
 
-export const X_AUTH = 'X-Auth';
+export const X_AUTH = 'token';
 
 export const AUTH_TOKEN = 'auth-token';
 
@@ -23,5 +23,7 @@ export const URL = {
     PARTECIPAZIONE: URL_BASE + '/aggiunta',
     MIEPARTITE: URL_BASE + '/mymatches',
     PARTITETERMINATE: URL_BASE + '/terminated',
+    CHECKFEEDBACK: URL_BASE + '/checkFeedback',
+    VOTAZIONE: URL_BASE + '/votazione',
 
 };
