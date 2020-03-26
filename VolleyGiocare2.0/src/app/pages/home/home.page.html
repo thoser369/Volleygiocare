@@ -17,17 +17,6 @@
     </ion-refresher>
 
     <ion-list>
-
-        <!--<div *ngFor="let s of (matches$ | async) | keyvalue">
-            <h3> {{s.key}}</h3>
-            <ion-card>
-                <ion-item *ngFor='let obj of s.value'>
-                    <ion-label>
-                        <h1>{{ obj.k}}</h1>
-                    </ion-label>
-                </ion-item>
-            </ion-card>
-        </div>-->
         <ion-card *ngFor="let m of (matches$ | async) | keyvalue" class="back ion-margin" >
             <ion-card-header>
                 <ion-card-subtitle *ngFor="let obj of m.value.organizzatore"> <div ><ion-icon name="person" ></ion-icon>{{" " + obj['name'] + " " +obj['surname']}}</div> </ion-card-subtitle>
