@@ -5,29 +5,31 @@
 </ion-header>
 
 <ion-content>
+
+        <div>
+            <ion-item class="animated fadeInUp ion-no-padding ">
+                <ion-avatar class="item-avatar ion-margin-start">
+                    <img src="../../../assets/images/martello.jpg" class="slot ion-margin-top">
+                </ion-avatar>
+                <ion-label class="ion-text-center text15">
+                    <b>{{ utente$.getValue().nome + " " + utente$.getValue().cognome}}</b>
+                    <p *ngIf="utente$.getValue().descrizione != null">{{utente$.getValue().descrizione}}</p>
+                </ion-label>
+            </ion-item>
+        </div>
+
+        <section>
+            <ion-button class="ion-float-end ion-text-center ion-no-margin ion-padding-end" size="small" shape="round"
+                        color="primary" (click)="update()" tappable>
+                <ion-icon name='create' slot="start" color="light"></ion-icon>
+                {{ 'MODIFICA_DESCRIZIONE_BOTTONE' | translate }}
+            </ion-button>
+        </section>
+
   <ion-item  class="animated fadeInUp ion-no-padding">
-    <ion-avatar margin-start class="item-avatar">
-      <img src="/assets/images/ScxLuwT2_400x400.jpg">
-    </ion-avatar>
-    <ion-label class="ion-text-center">
-      <h3><b>Prova</b></h3>
-      <p>Descrizione giocatore</p>
-    </ion-label>
+    <ion-label class="ion-text-center"></ion-label>
   </ion-item>
-  <ion-button size="small" expand="block" shape="round" color="quainter">Modifica il profilo</ion-button>
-  <!--<div class="ion-text-center"><ion-text margin-start color="tertiary"> <b>{{'SCHEDA GIOCATORE' | translate}}</b> </ion-text></div>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-text class="text1" color="primary" margin-bottom><p> <b>Campo preferito:</b> </ion-text>
-        <ion-text class="ion-no-margin"> <p>Campo Canada</p></ion-text>
-      </ion-col>
-      <ion-col>
-        <ion-text color="primary"> <p> <b>Partite giocate: </b> </p> </ion-text>
-        <ion-text class="text10"> <p> <b> 29 </b></p></ion-text>
-      </ion-col>
-    </ion-row>
-  </ion-grid>-->
+
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -49,9 +51,8 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <!--<ion-item lines="none">
-    <ion-button size="small" color="quainter">Modifica il profilo</ion-button>
-    </ion-item>-->
+
+
   <br><br>
   <ion-label margin-start color="light"> <b> Valutazioni e recensioni</b></ion-label>
   <ion-grid>
@@ -119,7 +120,7 @@
     </ion-item>
     <ion-item>
       <ion-avatar slot="start">
-        <img src="/assets/images/barbara.jpg">
+        <!--<img src="/assets/images/barbara.jpg">-->
       </ion-avatar>
       <ion-label>
         <h2><b>Barbarella</b></h2>

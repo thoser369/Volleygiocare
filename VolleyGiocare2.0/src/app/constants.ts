@@ -25,5 +25,6 @@ export const URL = {
     PARTITETERMINATE: URL_BASE + '/terminated',
     CHECKFEEDBACK: URL_BASE + '/checkFeedback',
     VOTAZIONE: URL_BASE + '/votazione',
+    AGGIUNGIDESCRIZIONE: URL_BASE + '/updateDescription',
 
 };

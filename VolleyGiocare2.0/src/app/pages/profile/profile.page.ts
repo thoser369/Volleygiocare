@@ -3,6 +3,7 @@ import {UtenteService} from '../../services/utente.service';
 import {BehaviorSubject} from 'rxjs';
 import {Utente} from '../../model/utente.model';
 import { IonInfiniteScroll } from '@ionic/angular';
+import {AlertController, NavController} from '@ionic/angular';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+    private utente$: BehaviorSubject<Utente>;
   // @ts-ignore
  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   private u1 = new Utente();
@@ -21,9 +23,12 @@ export class ProfilePage implements OnInit {
   private numero: string;
   private data: Array<string> = ['ciao', 'a', 'b', 'c', 'd', 'e'];
 
-  constructor( private utenteService: UtenteService) { }
+  constructor( private utenteService: UtenteService,
+               private alertController: AlertController) { }
 
   ngOnInit() {
+      this.utente$ = this.utenteService.getUtente();
+
     for (this.i = 0; this.i < this.voti.length; this.i++) {
       this.index = this.index + this.voti[this.i];
       if (this.voti[this.i] === 1) { this.uno++; }
@@ -65,4 +70,32 @@ export class ProfilePage implements OnInit {
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }
+    async update() {
+
+        const alert = await this.alertController.create({
+                message: 'Modifica Descrizione',
+                inputs: [{
+                    name: 'descrizione',
+                    placeholder: 'Modifica descrizione'
+                }
+                ],
+                buttons: [
+                    {
+                        text: 'Annulla',
+                        role: 'cancel'
+                    },
+                    {
+                        text: 'Salva',
+                        handler: data => {
+                            this.utenteService.aggiungiDescrizione(data['descrizione']).subscribe(res => {
+                                this.utente$.getValue().descrizione = res.body['data'];
+                            });
+                        }
+                    }
+                ]
+            }
+        );
+        await alert.present();
+    }
+
 }
