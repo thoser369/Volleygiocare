@@ -35,4 +35,6 @@ Route::post('api/checkFeedback', 'feedbackController@checkFeedback');
 
 Route::post('api/votazione', 'feedbackController@addVoto');
 
+Route::post('/api/updateDescription', 'ProfileController@updateDescr');
+
 

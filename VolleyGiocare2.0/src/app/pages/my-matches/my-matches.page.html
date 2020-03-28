@@ -55,7 +55,7 @@
                     </div>
 
                     <ion-list>
-                        <ion-card class="back cards " *ngFor="let r of miepartite$ | async">
+                        <ion-card class="back cards " *ngFor="let r of terminate$ | async">
                             <ion-card-header>
                                 <ion-card-title class="text-dark">
                                     <ion-icon name="clipboard"></ion-icon>
@@ -75,7 +75,7 @@
                                 <ion-row class="ion-no-padding">
                                     <ion-col class="ion-text-left ion-padding-start=30px">
                                         <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
-                                        {{"   " + r.organizzatore.id.name + " " }}
+                                        {{"   " + r.organizzatore.id + " " }}
                                         <ion-button class="ion-float-end bordo" expand="full" shape="round" color="primary"
                                                     size="small"
                                                     [routerLink]="['/giocatori', r.id]" routerDirection="forward">
