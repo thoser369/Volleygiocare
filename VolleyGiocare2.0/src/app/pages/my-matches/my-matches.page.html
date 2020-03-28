@@ -31,14 +31,14 @@
                          <ion-icon name="calendar" icon="left"></ion-icon>
                          {{(r.data_ora| date:'dd/MM/yyyy')}}
                          <ion-icon name="time" class="ion-padding-start"></ion-icon>
-                         {{r.data_ora|date: 'HH:mm'}}
+                         {{r.ora|date: 'hh:mm'}}
                          <ion-icon name="globe" class="ion-padding-start"></ion-icon>
                          {{r.luogo}}
                          <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
                          <ion-row class="ion-no-padding">
                              <ion-col class="ion-text-left ion-padding-start=30px">
                                  <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
-                                 {{"   " + r.organizzatore.id.name + " " }}
+                                 {{"   " + r.organizzatore.id + " " }}
                              </ion-col>
                          </ion-row>
                      </ion-card-content>
@@ -68,14 +68,14 @@
                                 <ion-icon name="calendar" icon="left"></ion-icon>
                                 {{(r.data_ora| date:'dd/MM/yyyy')}}
                                 <ion-icon name="time" class="ion-padding-start"></ion-icon>
-                                {{r.data_ora|date: 'HH:mm'}}
+                                {{r.ora|date: 'HH:mm'}}
                                 <ion-icon name="globe" class="ion-padding-start"></ion-icon>
                                 {{r.luogo}}
                                 <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
                                 <ion-row class="ion-no-padding">
                                     <ion-col class="ion-text-left ion-padding-start=30px">
                                         <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
-                                        {{"   " + r.organizzatore.id + " " }}
+                                        {{"   " + r.organizzatore.descrizione + "ciao ciao " }}
                                         <ion-button class="ion-float-end bordo" expand="full" shape="round" color="primary"
                                                     size="small"
                                                     [routerLink]="['/giocatori', r.id]" routerDirection="forward">

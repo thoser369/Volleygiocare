@@ -6,4 +6,5 @@ export class Utente {
     password: string;
     ruolo: string;
     descrizione: string;
+
 }

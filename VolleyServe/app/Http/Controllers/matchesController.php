@@ -111,7 +111,7 @@ class matchesController extends Controller
                 ->value('id');
 
             $partitemie = DB::table('match')
-                ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora')
+                ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora', 'ora')
                 ->join('partecipation', 'match.id', '=', 'partecipation.id_partita')
                 ->where('partecipation.id_giocatore', '=', $idUtente)
                 ->where('match.data_ora', '>=', Carbon::now())
@@ -142,7 +142,7 @@ class matchesController extends Controller
             ->value('id');
 
         $terminate = DB::table('match')
-            ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora')
+            ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora', 'ora')
             ->join('partecipation', 'match.id', '=', 'partecipation.id_partita')
             ->where('partecipation.id_giocatore', '=', $idUtente)
             ->where('match.data_ora', '<', Carbon::now())
@@ -151,7 +151,7 @@ class matchesController extends Controller
             ->get();
 
         $terminate->map(function ($item, $key) {
-            $item->id_organizzatore = DB::table('users')
+            $item->organizzatore = DB::table('users')
                 ->where('id', '=', $item->organizzatore)
                 ->first();
             return $item;
