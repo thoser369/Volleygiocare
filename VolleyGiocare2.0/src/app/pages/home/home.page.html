@@ -17,17 +17,17 @@
     </ion-refresher>
 
     <ion-list>
-        <ion-card *ngFor="let m of (matches$ | async) | keyvalue" class="back ion-margin" >
+        <ion-card *ngFor="let m of (matches$ | async)" class="back ion-margin" >
             <ion-card-header>
-                <ion-card-subtitle *ngFor="let obj of m.value.organizzatore"> <div ><ion-icon name="person" ></ion-icon>{{" " + obj['name'] + " " +obj['surname']}}</div> </ion-card-subtitle>
-                <ion-card-title> {{m.value.titolo}} </ion-card-title>
+                <ion-card-subtitle *ngFor="let obj of m.organizzatore"> <div ><ion-icon name="person" ></ion-icon>{{" " + obj['name'] + " " +obj['surname']}}</div> </ion-card-subtitle>
+                <ion-card-title> {{m.titolo}} </ion-card-title>
             </ion-card-header>
 
             <ion-card-content>
-                {{(m.value.data_ora | date:'dd/MM/yyyy' )+ " " +( m.value.ora | date: 'HH:mm')}}
+                {{(m.data_ora | date:'dd/MM/yyyy' )+ " " +( m.ora | date: 'HH:mm')}}
                 <ion-row class="ion-no-padding">
                     <ion-col class="ion-text-left ion-padding-start=30px">
-                        <ion-button class="ion-float-end" color="primary" icon-start size="small" [routerLink]="['/details', m.value.id]" routerDirection="forward" >
+                        <ion-button class="ion-float-end" color="primary" icon-start size="small" [routerLink]="['/details', m.id]" routerDirection="forward" >
                             <ion-icon name='create'></ion-icon>
                             {{'MATCH_DETAIL' | translate}}
                         </ion-button>

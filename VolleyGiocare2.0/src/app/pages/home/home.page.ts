@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController} from '@ionic/angular';
+import {ModalController, NavController} from '@ionic/angular';
 import {Observable} from 'rxjs';
 import {Partita} from '../../model/partita.model';
 import {MatchService} from '../../services/match.service';
@@ -18,7 +18,8 @@ export class HomePage implements OnInit {
 
     constructor(private navController: NavController,
                 private matchService: MatchService,
-                private utenteService: UtenteService) {
+                private utenteService: UtenteService,
+                private modalController: ModalController) {
     }
 
     ngOnInit() {
