@@ -63,7 +63,7 @@ export class LoginPage implements OnInit {
 
         const loginAccount: LoginAccount = this.loginFormModel.value;
         this.utenteService.login(loginAccount).subscribe(res => {
-            console.log(res.nome);
+            console.log(res.name);
             this.loginFormModel.reset();
             this.utenteService.getUtente().subscribe(res1 => {
                 console.log(res1.email);

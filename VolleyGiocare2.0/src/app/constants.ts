@@ -26,6 +26,7 @@ export const URL = {
     CHECKFEEDBACK: URL_BASE + '/checkFeedback',
     VOTAZIONE: URL_BASE + '/votazione',
     AGGIUNGIDESCRIZIONE: URL_BASE + '/updateDescription',
-
+    FEEDBACKPARTITA: URL_BASE + '/feedbackP',
+    INVIAFEEDBACK: URL_BASE + '/inviafeedback',
 
 };

@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">GIOCATORI_TITOLO</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/my-matches" icon="arrow-round-back"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <section class="ion-padding">
+        <ion-text class="ion-padding-top ion-margin"><b>GIOCATORI</b></ion-text>
+    </section>
+
+    <ion-grid>
+        <ion-row >
+            <ion-col col-6 size="6" *ngFor="let g of giocatori$ | async">
+                <ion-card class="ion-text-center card">
+                    <p class="text-dark"><b>{{g.name}} {{g.surname}}</b></p>
+
+
+                    <ion-item-divider></ion-item-divider>
+                    <ion-row>
+                        <ion-col>
+                            <ion-button class="bordo"  shape="round" color="primary"
+                                        size="small" (click)="apriVotazione(g)" type="submit">
+                                <ion-icon slot="start" name='medal'></ion-icon>
+                                <b> VOTA</b>
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

@@ -6,6 +6,7 @@ const routes: Routes = [
     {path: '', redirectTo: 'sscreen', pathMatch: 'full'},
     {path: 'login', loadChildren: './pages/login/login.module#LoginPageModule'},
     {path: 'registration', loadChildren: './pages/registration/registration.module#RegistrationPageModule'},
+    {path: 'giocatori/:id', loadChildren: () => import('./pages/giocatori/giocatori.module').then(r => r.GiocatoriPageModule), canActivate: [AuthGuard]},
     // {path: 'home', loadChildren: './pages/home/home.module#HomePageModule'},canActivate: [AuthGuard]
    //  {path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule'},
     {path: 'new-match', loadChildren: './pages/new-match/new-match.module#NewMatchPageModule'},

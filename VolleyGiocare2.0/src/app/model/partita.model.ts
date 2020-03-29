@@ -1,7 +1,7 @@
 import {Utente} from './utente.model';
 
 export class Partita {
-    id: bigint;
+    id: number;
     titolo: string;
     descrizione: string;
     // tslint:disable-next-line:variable-name

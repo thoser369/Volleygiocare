@@ -47,9 +47,9 @@ export class ProfilePage implements OnInit {
 
 
     this.utenteService.getUtente().subscribe(res => {
-      console.log(res.nome);
-      this.u1.nome = res.nome;
-      this.u1.cognome = res.cognome;
+      console.log(res.name);
+      this.u1.name = res.name;
+      this.u1.surname = res.surname;
       this.u1.ruolo = res.ruolo;
       this.u1 = res;
      });

@@ -37,4 +37,8 @@ Route::post('api/votazione', 'feedbackController@addVoto');
 
 Route::post('/api/updateDescription', 'ProfileController@updateDescr');
 
+Route::get('api/feedbackP/{id}', 'matchesController@feedbackPlayers');
+
+Route::post('api/inviafeedback', 'feedbackController@inviafeedback');
+
 

@@ -91,8 +91,8 @@ export class MatchService {
         const params = new HttpParams()
             .set('commento', feedback.commento)
             .set('voto', feedback.voto)
-            .set('id_giocatore_votato', feedback.id_giocatore_votato.id.toString())
-            .set('id_partita', feedback.id_partita.id.toString());
+            .set('id_giocatore_votato', feedback.id_giocatore_votato.toString())
+            .set('id_partita', feedback.id_partita.toString());
 
         return this.http.post(URL.VOTAZIONE, params, {observe: 'response'});
     }
@@ -106,5 +106,15 @@ export class MatchService {
 
 
     }
-
+    findGiocatori(partitaID: number): Observable<Utente[]> {
+        const apiURL = `${URL.FEEDBACKPARTITA}/${partitaID}`;
+        return this.http.get<Utente[]>(apiURL);
+    }
+    inviafeedback(feedback: Feedback) {
+        const params = new HttpParams()
+            .set('id_giocatore_votato', feedback.id_giocatore_votato.toString())
+            .set('id_partita', feedback.id_partita.toString())
+            .set('voto', feedback.voto);
+        return this.http.post<Utente>(URL.INVIAFEEDBACK, params, {observe: 'response'});
+    }
 }

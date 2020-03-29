@@ -6,6 +6,7 @@ import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
 import {Utente} from '../model/utente.model';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {Feedback} from '../model/feedback.model';
 
 export interface Account {
     email: string;

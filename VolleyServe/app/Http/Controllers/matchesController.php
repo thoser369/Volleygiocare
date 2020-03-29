@@ -184,7 +184,25 @@ class matchesController extends Controller
         ], 201);
 
     }
+    public function feedbackPlayers(Request $request, $idpartita) {
 
+        $access_token = $request->header('token');
+
+        $idUtente = DB::table('users')
+            ->select('id')
+            ->where('users.token', '=', $access_token)
+            ->value('id');
+
+        $players= DB::table('partecipation')
+            ->join('users', 'partecipation.id_giocatore', '=', 'users.id')
+            ->select('users.name', 'users.surname', 'users.id')
+            ->where('partecipation.id_partita', '=', $idpartita)
+            ->where('partecipation.id_giocatore', '<>', $idUtente)
+            ->distinct()
+            ->get();
+
+        return $players->toJson();
+    }
 
 
 }

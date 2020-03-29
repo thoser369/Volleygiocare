@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class feedbackController extends Controller
 {
-    public function addVoto(Request $request)
+    public function inviafeedback(Request $request)
     {
         $access_token = $request->header('token');
 
@@ -22,8 +22,7 @@ class feedbackController extends Controller
             ->insert([
                 'id_giocatore_votato' => $request->input('id_giocatore_votato'),
                 'id_giocatore_votante' => $id_giocatore_votante,
-                'id_partita' => $request->input('id_partita'),
-                'commento' =>$request->input('commento'),
+                'id_giocatore_partita' => $request->input('id_partita'),
                 'voto' =>$request->input('voto')
             ]);
 
