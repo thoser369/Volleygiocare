@@ -23,7 +23,8 @@ export class GiocatoriPage implements OnInit {
                 private partitaService: MatchService,
                 private modalController: ModalController,
                 private alertController: AlertController,
-                private alertController_commento: AlertController) {
+                private alertController_commento: AlertController,
+                private alertController_feedback_lasciato: AlertController) {
     }
 
     ngOnInit() {
@@ -97,6 +98,7 @@ export class GiocatoriPage implements OnInit {
                                             feedback.id_giocatore_votato = giocatore.id;
                                             this.partitaService.inviafeedback(feedback).subscribe(res => {
                                             });
+                                            this.feedback_lasciato();
                                         }
                                     }
                                 ]
@@ -108,5 +110,14 @@ export class GiocatoriPage implements OnInit {
             }
         );
         await alert.present();
+    }
+    async feedback_lasciato() {
+        const alert_feedbacklasciato = await this.alertController_feedback_lasciato.create({
+            message: 'Giocatore votato!',
+            buttons: [{
+                text: 'Ok'
+            }]
+        });
+        await alert_feedbacklasciato.present();
     }
 }
