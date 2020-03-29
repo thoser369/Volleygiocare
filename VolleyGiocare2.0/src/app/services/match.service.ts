@@ -114,7 +114,8 @@ export class MatchService {
         const params = new HttpParams()
             .set('id_giocatore_votato', feedback.id_giocatore_votato.toString())
             .set('id_partita', feedback.id_partita.toString())
-            .set('voto', feedback.voto);
+            .set('voto', feedback.voto)
+            .set('commento', feedback.commento);
         return this.http.post<Utente>(URL.INVIAFEEDBACK, params, {observe: 'response'});
     }
 }

@@ -22,7 +22,8 @@ export class GiocatoriPage implements OnInit {
                 private utenteService: UtenteService,
                 private partitaService: MatchService,
                 private modalController: ModalController,
-                private alertController: AlertController) {
+                private alertController: AlertController,
+                private alertController_commento: AlertController) {
     }
 
     ngOnInit() {
@@ -74,13 +75,33 @@ export class GiocatoriPage implements OnInit {
                     },
                     {
                         text: 'Invia voto',
-                        handler: data => {
-                            const feedback = new Feedback();
-                            feedback.voto = data;
-                            feedback.id_partita = this.id_partita;
-                            feedback.id_giocatore_votato = giocatore.id;
-                            this.partitaService.inviafeedback(feedback).subscribe(res => {
+                        handler: async data => {
+                            const alert_commento = await this.alertController_commento.create({
+                                message: 'Scrivi un commento',
+                                inputs: [{
+                                    name: 'commento',
+                                    placeholder: 'Inserisci un commento (facoltativo)'
+                                }],
+                                buttons: [
+                                    {
+                                        text: 'Annulla',
+                                        role: 'cancel'
+                                    },
+                                    {
+                                        text: 'Invia commento',
+                                        handler: data_commento => {
+                                            const feedback = new Feedback();
+                                            feedback.voto = data;
+                                            feedback.commento = data_commento['commento'];
+                                            feedback.id_partita = this.id_partita;
+                                            feedback.id_giocatore_votato = giocatore.id;
+                                            this.partitaService.inviafeedback(feedback).subscribe(res => {
+                                            });
+                                        }
+                                    }
+                                ]
                             });
+                            await alert_commento.present();
                         }
                     }
                 ]

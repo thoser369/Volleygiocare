@@ -23,7 +23,8 @@ class feedbackController extends Controller
                 'id_giocatore_votato' => $request->input('id_giocatore_votato'),
                 'id_giocatore_votante' => $id_giocatore_votante,
                 'id_giocatore_partita' => $request->input('id_partita'),
-                'voto' =>$request->input('voto')
+                'voto' =>$request->input('voto'),
+                'commento' =>$request->input('commento')
             ]);
 
 
