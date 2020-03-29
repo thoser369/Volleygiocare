@@ -16,6 +16,8 @@ class matchesController extends Controller
          $matches= DB::table('match')
              ->select('titolo', 'descrizione', 'luogo', 'tipo', 'organizzatore', 'match.id', 'data_ora','ora')
              ->join('partecipation','match.organizzatore', '=','partecipation.id_giocatore')
+             ->where ('numero_giocatori','>',0)
+             ->where('match.data_ora', '>=', Carbon::now())
              ->whereNotIn('match.id', function($query) use ($idU){
                  $query->select('id_partita')
                      ->from('partecipation')
