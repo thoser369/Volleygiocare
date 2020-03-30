@@ -11,6 +11,9 @@ ion-card {
     color: #800517;
 
 }
+.back_cards{
+     font-weight: bold
+ }
 ion-slide > h2 {
     margin-top: 1.2rem;
 }
@@ -20,7 +23,9 @@ ion-slide > img {
     margin-top: 40px;
 
 }
-
+.text-dark{
+    color: #4863A0;
+}
 .icona {
     color: #4863A0;
     font-size: 25px;
@@ -30,9 +35,12 @@ ion-slide > img {
     margin-top: 20px;
     color: #4863A0;
 }
+
 ion-card {
     border: 1px solid #4863A0;
     border-radius: 10px;
+    font-size: 45px;
     //--background: url(/../../../assets/images/background.jpg) 0 0/100% 100% no-repeat ;
     // opacity: 0.5;
 }
+

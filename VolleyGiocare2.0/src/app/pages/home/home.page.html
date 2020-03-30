@@ -17,10 +17,10 @@
     </ion-refresher>
 
     <ion-list>
-        <ion-card *ngFor="let m of (matches$ | async)" class="back ion-margin" >
+        <ion-card *ngFor="let m of (matches$ | async)" class="back_cards" >
             <ion-card-header>
                 <ion-card-subtitle *ngFor="let obj of m.organizzatore"> <div ><ion-icon name="person" ></ion-icon>{{" " + obj['name'] + " " +obj['surname']}}</div> </ion-card-subtitle>
-                <ion-card-title> {{m.titolo}} </ion-card-title>
+                <ion-card-title class="tit"> {{m.titolo}} </ion-card-title>
             </ion-card-header>
 
             <ion-card-content>

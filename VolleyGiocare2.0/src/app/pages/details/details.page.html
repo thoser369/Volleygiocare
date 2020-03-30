@@ -9,15 +9,19 @@
 
 <ion-content>
 
-    <ion-card> <!--  -->
+    <ion-card>
         <ion-card-header>
-            <ion-card-title color="dark"> Titolo: </ion-card-title>
+            <ion-card-title class="text-dark"> Titolo: </ion-card-title>
         </ion-card-header>
-        <ion-card-content>
+        <ion-card-content class="dett">
 
-        Descrizione: {{m.descrizione}}
-
-        Numero giocatori: {{m.numero_giocatori}}
+            <b>Descrizione:</b> {{" "+ m.descrizione +  ""}}
+        <br>
+            <br>
+            <b>Numero giocatori richiesti:</b> {{" " + m.numero_giocatori + " "}}
+        <br>
+            <br>
+            <b>Luogo:</b> {{" "+ m.luogo +" "}}
         </ion-card-content>
     </ion-card>
 
