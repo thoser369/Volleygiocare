@@ -17,6 +17,7 @@ import {Feedback} from '../../model/feedback.model';
 export class GiocatoriPage implements OnInit {
     private id_partita: number;
     private giocatori$: Observable<Utente[]>;
+    private votopresente: number;
 
     constructor(private activatedRoute: ActivatedRoute,
                 private utenteService: UtenteService,
@@ -24,6 +25,7 @@ export class GiocatoriPage implements OnInit {
                 private modalController: ModalController,
                 private alertController: AlertController,
                 private alertController_commento: AlertController,
+                private alertController_giocatore_votato: AlertController,
                 private alertController_feedback_lasciato: AlertController) {
     }
 
@@ -35,7 +37,33 @@ export class GiocatoriPage implements OnInit {
         });
     }
 
-    async apriVotazione(giocatore: Utente) {
+     apriVotazione(giocatore: Utente) {
+        this.partitaService.getFeedback(this.id_partita, giocatore.id).subscribe(res => {
+        const check = 'check';
+        this.votopresente = res[check];
+        this.votazione(giocatore.id);
+        });
+    }
+    async feedback_lasciato() {
+        const alert_feedbacklasciato = await this.alertController_feedback_lasciato.create({
+            message: 'Giocatore votato!',
+            buttons: [{
+                text: 'Ok'
+            }]
+        });
+        await alert_feedbacklasciato.present();
+    }
+    async giocatore_gia_votato() {
+        const alert_giocatore_votato = await this.alertController_giocatore_votato.create({
+            message: 'Hai gia votato questo giocatore!',
+            buttons: [{
+                text: 'Ok'
+            }]
+        });
+        await alert_giocatore_votato.present();
+    }
+    async votazione(idgiocatore) {
+        if (this.votopresente <= 0) {
         const alert = await this.alertController.create({
                 message: 'Esprimi un voto da 1 a 5',
                 inputs: [{
@@ -95,7 +123,7 @@ export class GiocatoriPage implements OnInit {
                                             feedback.voto = data;
                                             feedback.commento = data_commento['commento'];
                                             feedback.id_partita = this.id_partita;
-                                            feedback.id_giocatore_votato = giocatore.id;
+                                            feedback.id_giocatore_votato = idgiocatore;
                                             this.partitaService.inviafeedback(feedback).subscribe(res => {
                                             });
                                             this.feedback_lasciato();
@@ -110,14 +138,6 @@ export class GiocatoriPage implements OnInit {
             }
         );
         await alert.present();
-    }
-    async feedback_lasciato() {
-        const alert_feedbacklasciato = await this.alertController_feedback_lasciato.create({
-            message: 'Giocatore votato!',
-            buttons: [{
-                text: 'Ok'
-            }]
-        });
-        await alert_feedbacklasciato.present();
+        }else { this.giocatore_gia_votato(); }
     }
 }

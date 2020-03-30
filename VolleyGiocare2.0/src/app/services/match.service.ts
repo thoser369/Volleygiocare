@@ -118,4 +118,8 @@ export class MatchService {
             .set('commento', feedback.commento);
         return this.http.post<Utente>(URL.INVIAFEEDBACK, params, {observe: 'response'});
     }
+    getFeedback(idpartita, idgiocatore) {
+        const getfeedbackurl = `${URL.GETFEEDBACK}/${idpartita}/${idgiocatore}`;
+        return this.http.get(getfeedbackurl);
+    }
 }

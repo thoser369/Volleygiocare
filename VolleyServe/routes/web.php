@@ -41,4 +41,6 @@ Route::get('api/feedbackP/{id}', 'matchesController@feedbackPlayers');
 
 Route::post('api/inviafeedback', 'feedbackController@inviafeedback');
 
+Route::get('api/getfeedback/{idpartita}/{idgiocatore}', 'feedbackController@getfeedback');
+
 

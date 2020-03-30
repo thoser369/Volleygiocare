@@ -28,5 +28,6 @@ export const URL = {
     AGGIUNGIDESCRIZIONE: URL_BASE + '/updateDescription',
     FEEDBACKPARTITA: URL_BASE + '/feedbackP',
     INVIAFEEDBACK: URL_BASE + '/inviafeedback',
+    GETFEEDBACK: URL_BASE + '/getfeedback',
 
 };
