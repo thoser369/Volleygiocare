@@ -43,4 +43,8 @@ Route::post('api/inviafeedback', 'feedbackController@inviafeedback');
 
 Route::get('api/getfeedback/{idpartita}/{idgiocatore}', 'feedbackController@getfeedback');
 
+Route::get('api/getcommenti', 'ProfileController@getcommenti');
+
+Route::get('api/getmedia', 'ProfileController@getmedia');
+
 

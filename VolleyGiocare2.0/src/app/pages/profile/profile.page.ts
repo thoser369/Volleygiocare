@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {UtenteService} from '../../services/utente.service';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {Utente} from '../../model/utente.model';
 import { IonInfiniteScroll } from '@ionic/angular';
 import {AlertController, NavController} from '@ionic/angular';
+import {Feedback} from '../../model/feedback.model';
 
 
 @Component({
@@ -13,63 +14,36 @@ import {AlertController, NavController} from '@ionic/angular';
 })
 export class ProfilePage implements OnInit {
     private utente$: BehaviorSubject<Utente>;
-  // @ts-ignore
- @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-  private u1 = new Utente();
-  private index = 0;
-  public lenght = 0;
-  private i; uno = 0; due = 0; tre = 0; quattro = 0; cinque = 0;
-  private voti: Array<number> = [3, 5, 5, 3, 4, 5, 5, 5, 5, 4, 2, 2, 2, 1, 1];
-  private numero: string;
-  private data: Array<string> = ['ciao', 'a', 'b', 'c', 'd', 'e'];
+    private feedback$: Observable<Feedback[]>;
+    private media; media1; media2; media3; media4; media5; numero_recensioni;
 
   constructor( private utenteService: UtenteService,
                private alertController: AlertController) { }
 
   ngOnInit() {
+      this.feedback$ = this.utenteService.elencoCommenti();
       this.utente$ = this.utenteService.getUtente();
-
-    for (this.i = 0; this.i < this.voti.length; this.i++) {
-      this.index = this.index + this.voti[this.i];
-      if (this.voti[this.i] === 1) { this.uno++; }
-      if (this.voti[this.i] === 2) { this.due++; }
-      if (this.voti[this.i] === 3) { this.tre++; }
-      if (this.voti[this.i] === 4) { this.quattro++; }
-      if (this.voti[this.i] === 5) { this.cinque++; }
+      this.utenteService.getMedia().subscribe(res => {
+          const media = 'media';
+          const media1 = 'media1';
+          const media2 = 'media2';
+          const media3 = 'media3';
+          const media4 = 'media4';
+          const media5 = 'media5';
+          this.media = res[media];
+          this.media1 = res[media1] / 10;
+          this.media2 = res[media2] / 10;
+          this.media3 = res[media3] / 10;
+          this.media4 = res[media4] / 10;
+          this.media5 = res[media5] / 10;
+          this.numero_recensioni = res[media1] + res[media2] + res[media3] + res[media4] + res[media5];
+      });
+  }
+    loadData(event) {
+        setTimeout(() => {
+            event.target.complete();
+        }, 500);
     }
-    this.uno = this.uno / 10;
-    this.due = this.due / 10;
-    this.tre = this.tre / 10;
-    this.quattro = this.quattro / 10;
-    this.cinque = this.cinque / 10;
-    this.numero = (this.index / this.i).toFixed(1);
-    this.index = this.index / this.i;
-
-
-    this.utenteService.getUtente().subscribe(res => {
-      console.log(res.name);
-      this.u1.name = res.name;
-      this.u1.surname = res.surname;
-      this.u1.ruolo = res.ruolo;
-      this.u1 = res;
-     });
-  }
-  loadData(event) {
-    setTimeout(() => {
-      console.log('Done');
-      event.target.complete();
-
-      // App logic to determine if all data is loaded
-      // and disable the infinite scroll
-      if (this.data.length === 1000) {
-        event.target.disabled = true;
-      }
-    }, 500);
-  }
-
-  toggleInfiniteScroll() {
-    this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-  }
     async update() {
 
         const alert = await this.alertController.create({

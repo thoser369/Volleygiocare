@@ -29,5 +29,7 @@ export const URL = {
     FEEDBACKPARTITA: URL_BASE + '/feedbackP',
     INVIAFEEDBACK: URL_BASE + '/inviafeedback',
     GETFEEDBACK: URL_BASE + '/getfeedback',
+    ELENCOCOMMENTI: URL_BASE + '/getcommenti',
+    MEDIA: URL_BASE + '/getmedia',
 
 };

@@ -125,4 +125,13 @@ export class UtenteService {
         return this.http.post<Utente>(URL.AGGIUNGIDESCRIZIONE, params, {observe: 'response'});
     }
 
+    elencoCommenti(): Observable<Feedback[]> {
+        return this.http.get<Feedback[]>(URL.ELENCOCOMMENTI);
+
+    }
+
+    getMedia() {
+        return this.http.get(URL.MEDIA);
+    }
+
 }
