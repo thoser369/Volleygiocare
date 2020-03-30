@@ -5,8 +5,6 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 import {MatchService} from '../../services/match.service';
 import {UtenteService} from '../../services/utente.service';
 import {AlertController, ModalController} from '@ionic/angular';
-import {FeedbackPage} from '../feedback/feedback.page';
-import {Partita} from '../../model/partita.model';
 import {Feedback} from '../../model/feedback.model';
 
 @Component({
@@ -138,6 +136,6 @@ export class GiocatoriPage implements OnInit {
             }
         );
         await alert.present();
-        }else { this.giocatore_gia_votato(); }
+        } else { this.giocatore_gia_votato(); }
     }
 }
