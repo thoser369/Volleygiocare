@@ -62,10 +62,10 @@
           <div margin-start="50px">
             <p ion-text margin-start class="text30" >{{media}}</p>
             <ion-icon *ngIf="media==0" name="star-outline"></ion-icon><ion-icon *ngIf="media>0&&media<1" name="star-half"></ion-icon><ion-icon *ngIf="media>1||media==1" name="star"></ion-icon>
-            <ion-icon *ngIf="media<1" name="star-outline"></ion-icon><ion-icon *ngIf="media>1&&media<2" name="star-half"></ion-icon><ion-icon *ngIf="media>2||media==2" name="star"></ion-icon>
-            <ion-icon *ngIf="media<2" name="star-outline"></ion-icon><ion-icon *ngIf="media>2&&media<3" name="star-half"></ion-icon><ion-icon *ngIf="media>3||media==3" name="star"></ion-icon>
-            <ion-icon *ngIf="media<3" name="star-outline"></ion-icon><ion-icon *ngIf="media>3&&media<4" name="star-half"></ion-icon><ion-icon *ngIf="media>4||media==4" name="star"></ion-icon>
-            <ion-icon *ngIf="media<4" name="star-outline"></ion-icon><ion-icon *ngIf="media>4&&media<5" name="star-half"></ion-icon><ion-icon *ngIf="media>5||media==5" name="star"></ion-icon>
+            <ion-icon *ngIf="media<=1" name="star-outline"></ion-icon><ion-icon *ngIf="media>1&&media<2" name="star-half"></ion-icon><ion-icon *ngIf="media>2||media==2" name="star"></ion-icon>
+            <ion-icon *ngIf="media<=2" name="star-outline"></ion-icon><ion-icon *ngIf="media>2&&media<3" name="star-half"></ion-icon><ion-icon *ngIf="media>3||media==3" name="star"></ion-icon>
+            <ion-icon *ngIf="media<=3" name="star-outline"></ion-icon><ion-icon *ngIf="media>3&&media<4" name="star-half"></ion-icon><ion-icon *ngIf="media>4||media==4" name="star"></ion-icon>
+            <ion-icon *ngIf="media<=4" name="star-outline"></ion-icon><ion-icon *ngIf="media>4&&media<5" name="star-half"></ion-icon><ion-icon *ngIf="media>5||media==5" name="star"></ion-icon>
             <div class="ion-no-margin" class="ion-no-padding" class="ion-text-center">
               <p class="text08" >recensioni: {{numero_recensioni}}</p>
             </div>

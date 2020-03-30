@@ -37,6 +37,7 @@ export class ProfilePage implements OnInit {
           this.media4 = res[media4] / 10;
           this.media5 = res[media5] / 10;
           this.numero_recensioni = res[media1] + res[media2] + res[media3] + res[media4] + res[media5];
+          if (this.media === null) this.media = 0;
       });
       this.utenteService.numero_partite_giocate().subscribe(res => {
           this.numero_partite_giocate = res;
