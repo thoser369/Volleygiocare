@@ -31,5 +31,6 @@ export const URL = {
     GETFEEDBACK: URL_BASE + '/getfeedback',
     ELENCOCOMMENTI: URL_BASE + '/getcommenti',
     MEDIA: URL_BASE + '/getmedia',
+    NUMERO_PARTITE_GIOCATE: URL_BASE + '/getnumeropartite',
 
 };

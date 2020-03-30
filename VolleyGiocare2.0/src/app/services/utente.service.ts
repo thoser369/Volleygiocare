@@ -133,5 +133,7 @@ export class UtenteService {
     getMedia() {
         return this.http.get(URL.MEDIA);
     }
-
+    numero_partite_giocate() {
+        return this.http.get(URL.NUMERO_PARTITE_GIOCATE);
+    }
 }

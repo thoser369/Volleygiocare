@@ -171,6 +171,25 @@ class matchesController extends Controller
 
     }
 
+    public function numero_partite_terminate(Request $request)
+    {
+        $access_token = $request->header('token');
+
+        $idUtente = DB::table('users')
+            ->select('id')
+            ->where('users.token', '=', $access_token)
+            ->value('id');
+
+        $numero_partite_terminate = DB::table('match')
+            ->join('partecipation', 'match.id', '=', 'partecipation.id_partita')
+            ->where('partecipation.id_giocatore', '=', $idUtente)
+            ->where('match.data_ora', '<', Carbon::now())
+            ->count('match.id');
+
+        return $numero_partite_terminate;
+
+    }
+
     public function partecipa($idG,$idP) {
 
         DB::table('partecipation')

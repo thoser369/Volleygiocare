@@ -47,4 +47,5 @@ Route::get('api/getcommenti', 'ProfileController@getcommenti');
 
 Route::get('api/getmedia', 'ProfileController@getmedia');
 
+Route::get('api/getnumeropartite', 'matchesController@numero_partite_terminate');
 

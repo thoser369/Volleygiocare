@@ -15,7 +15,7 @@ import {Feedback} from '../../model/feedback.model';
 export class ProfilePage implements OnInit {
     private utente$: BehaviorSubject<Utente>;
     private feedback$: Observable<Feedback[]>;
-    private media; media1; media2; media3; media4; media5; numero_recensioni;
+    private media; media1; media2; media3; media4; media5; numero_recensioni; numero_partite_giocate;
 
   constructor( private utenteService: UtenteService,
                private alertController: AlertController) { }
@@ -37,6 +37,9 @@ export class ProfilePage implements OnInit {
           this.media4 = res[media4] / 10;
           this.media5 = res[media5] / 10;
           this.numero_recensioni = res[media1] + res[media2] + res[media3] + res[media4] + res[media5];
+      });
+      this.utenteService.numero_partite_giocate().subscribe(res => {
+          this.numero_partite_giocate = res;
       });
   }
     loadData(event) {
