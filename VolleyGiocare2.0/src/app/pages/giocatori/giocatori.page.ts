@@ -63,35 +63,35 @@ export class GiocatoriPage implements OnInit {
     async votazione(idgiocatore) {
         if (this.votopresente <= 0) {
         const alert = await this.alertController.create({
-                message: 'Esprimi un voto da 1 a 5',
+                message: 'Esprimi un giudizio sul livello del giocatore',
                 inputs: [{
                     name: 'votazione1',
                     type: 'radio',
-                    label: '1',
+                    label: 'Giocatore scarso',
                     value: '1',
                 },
                     {
                         name: 'votazione2',
                         type: 'radio',
-                        label: '2',
+                        label: 'Giocatore mediocre',
                         value: '2',
                     },
                     {
                         name: 'votazione3',
                         type: 'radio',
-                        label: '3',
+                        label: 'Giocatore ordinario',
                         value: '3',
                     },
                     {
                         name: 'votazione4',
                         type: 'radio',
-                        label: '4',
+                        label: 'Ottimo giocatore',
                         value: '4',
                     },
                     {
                         name: 'votazione5',
                         type: 'radio',
-                        label: '5',
+                        label: 'Giocatore eccellente',
                         value: '5',
                     }
                 ],
