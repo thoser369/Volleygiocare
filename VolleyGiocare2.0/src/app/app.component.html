@@ -1,6 +1,6 @@
  <ion-app>
-    <ion-split-pane>
-        <ion-menu *ngIf="isLoggedIn$ | async">
+    <ion-split-pane contentId="menu-content">
+        <ion-menu *ngIf="isLoggedIn$ | async" content-id="menu-content">
             <ion-header class="ion-text-center">
                 <ion-toolbar color="primary">
 
@@ -36,6 +36,6 @@
             </ion-content>
 
         </ion-menu>
-        <ion-router-outlet main></ion-router-outlet>
+        <ion-router-outlet id="menu-content"></ion-router-outlet>
     </ion-split-pane>
 </ion-app>

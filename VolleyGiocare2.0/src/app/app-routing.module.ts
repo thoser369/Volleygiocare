@@ -13,10 +13,10 @@ const routes: Routes = [
     {path: 'details/:id', loadChildren: './pages/details/details.module#DetailsPageModule'},
     // {path: 'my-matches', loadChildren: './pages/my-matches/my-matches.module#MyMatchesPageModule'},
     {path: 'tabs', loadChildren: './pages/tabs/tabs.module#TabsPageModule'}, // , canActivateChild: [AuthGuard]
-    {path: 'terminated', loadChildren: './pages/terminated/terminated.module#TerminatedPageModule'},
-    {path: 'planned', loadChildren: './pages/planned/planned.module#PlannedPageModule'},
-    {path: 'players', loadChildren: './pages/players/players.module#PlayersPageModule'},
-    {path: 'feedback', loadChildren: './pages/feedback/feedback.module#FeedbackPageModule'},
+   // {path: 'terminated', loadChildren: './pages/terminated/terminated.module#TerminatedPageModule'},
+   // {path: 'planned', loadChildren: './pages/planned/planned.module#PlannedPageModule'},
+   // {path: 'players', loadChildren: './pages/players/players.module#PlayersPageModule'},
+    //{path: 'feedback', loadChildren: './pages/feedback/feedback.module#FeedbackPageModule'},
     {path: 'settings', loadChildren: './pages/settings/settings.module#SettingsPageModule'},
   { path: 'sscreen', loadChildren: './pages/sscreen/sscreen.module#SscreenPageModule' },
 

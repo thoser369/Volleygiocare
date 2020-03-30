@@ -58,14 +58,14 @@
     </ion-item>
   </ion-list>
 
-  <div margin-top="20px">
+  <div class="ion-margin-top" >
     <ion-button icon-left size="medium" expand="full" shape="round" color="tertiary" (click)="onSignUp()"  [disabled]="!signUpFormModel.valid" tappable>
       <ion-icon name="done-all" class="ion-padding-end" ></ion-icon>
       {{ 'CONFIRM_REGISTRATION_BUTTON' | translate }}
     </ion-button>
   </div>
 
-  <div margin-top="20px">
+  <div class="ion-margin-top">
     <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onLogin()"  tappable>
       <ion-icon name="log-in"  class="ion-padding-end" ></ion-icon>
       {{ 'LOGIN_BUTTON' | translate }}

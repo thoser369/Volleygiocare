@@ -34,14 +34,14 @@
         <p ion-text class="text08" *ngIf="loginFormModel.get('password').touched && loginFormModel.get('password').invalid">
             <ion-text color="danger">{{ 'PASSWORD_REQUIRED' | translate }}</ion-text>
         </p>
-        <div padding-top="30px" margin-top="20px">
+        <div class="ion-margin-top ion-padding-top">
             <ion-button icon-left size="medium" expand="full" shape="round" color="tertiary" (click)="onLogin()" [disabled]="!loginFormModel.valid" tappable>
                 <ion-icon name="log-in"></ion-icon>
                 {{ 'LOGIN_BUTTON' | translate }}
             </ion-button>
         </div>
 
-        <div margin-top="20px">
+        <div class="ion-margin-top">
             <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onReg()"  tappable>
                 <ion-icon name="create"></ion-icon>
                 {{ 'REGISTRATION_BUTTON' | translate }}

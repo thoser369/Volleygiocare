@@ -8,8 +8,7 @@ import {GiocatoriPageRoutingModule} from './giocatori-routing.module';
 
 import {GiocatoriPage} from './giocatori.page';
 import {TranslateModule} from '@ngx-translate/core';
-import {FeedbackPageModule} from '../feedback/feedback.module';
-import {FeedbackPage} from '../feedback/feedback.page';
+
 
 @NgModule({
     imports: [
@@ -20,8 +19,8 @@ import {FeedbackPage} from '../feedback/feedback.page';
         TranslateModule,
         ReactiveFormsModule
     ],
-    declarations: [GiocatoriPage, FeedbackPage],
-    entryComponents: [FeedbackPage]
+    declarations: [GiocatoriPage],
+
 })
 export class GiocatoriPageModule {
 }
