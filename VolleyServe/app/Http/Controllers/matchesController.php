@@ -159,13 +159,6 @@ class matchesController extends Controller
             return $item;
         });
 
-        /*$terminate->map(function ($item, $key) {
-            $item->tipo = DB::table('favourite_role')
-                ->where('id', '=', $item->tipo)
-                ->first();
-
-            return $item;
-        });*/
 
         return $terminate->toJson();
 
