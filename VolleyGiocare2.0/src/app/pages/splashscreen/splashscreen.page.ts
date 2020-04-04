@@ -3,10 +3,10 @@ import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-sscreen',
-    templateUrl: './sscreen.page.html',
-    styleUrls: ['./sscreen.page.scss'],
+    templateUrl: './splashscreen.page.html',
+    styleUrls: ['./splashscreen.page.scss'],
 })
-export class SscreenPage implements OnInit {
+export class SplashscreenPage implements OnInit {
 
     private loading;
 
