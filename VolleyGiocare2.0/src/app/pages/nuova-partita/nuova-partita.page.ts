@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatchService, NewMatch} from '../../services/match.service';
+import {PartitaService, NewMatch} from '../../services/partita.service';
 import {NavController} from '@ionic/angular';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
@@ -17,7 +17,7 @@ export class NuovaPartitaPage implements OnInit {
     private newMatchFormModel: FormGroup;
 
     constructor(private formBuilder: FormBuilder,
-                private matchService: MatchService,
+                private matchService: PartitaService,
                 private navController: NavController,
                 private utenteService: UtenteService) {
     }

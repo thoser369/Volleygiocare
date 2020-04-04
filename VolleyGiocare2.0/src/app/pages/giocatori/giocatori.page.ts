@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Utente} from '../../model/utente.model';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {MatchService} from '../../services/match.service';
+import {PartitaService} from '../../services/partita.service';
 import {UtenteService} from '../../services/utente.service';
 import {AlertController, ModalController} from '@ionic/angular';
 import {Feedback} from '../../model/feedback.model';
@@ -19,7 +19,7 @@ export class GiocatoriPage implements OnInit {
 
     constructor(private activatedRoute: ActivatedRoute,
                 private utenteService: UtenteService,
-                private partitaService: MatchService,
+                private partitaService: PartitaService,
                 private modalController: ModalController,
                 private alertController: AlertController,
                 private alertController_commento: AlertController,

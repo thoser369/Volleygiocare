@@ -25,7 +25,7 @@ export interface NewMatch {
     providedIn: 'root'
 })
 
-export class MatchService {
+export class PartitaService {
     private user = new Utente();
     private idU = this.user.id;
 

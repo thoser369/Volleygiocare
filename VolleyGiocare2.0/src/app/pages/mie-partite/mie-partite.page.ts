@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Partita} from '../../model/partita.model';
 import {Observable} from 'rxjs';
-import {MatchService} from '../../services/match.service';
+import {PartitaService} from '../../services/partita.service';
 import {NavController} from '@ionic/angular';
 
 
@@ -16,7 +16,7 @@ export class MiePartitePage implements OnInit {
     private terminate$: Observable<Partita[]>;
 
   constructor(
-      private matchService: MatchService,
+      private matchService: PartitaService,
       private navController: NavController, ) { }
 
     ionViewWillEnter() {

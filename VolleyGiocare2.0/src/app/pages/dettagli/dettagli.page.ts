@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Partita} from '../../model/partita.model';
-import {MatchService} from '../../services/match.service';
+import {PartitaService} from '../../services/partita.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 
 import {UtenteService} from '../../services/utente.service';
@@ -20,7 +20,7 @@ export class DettagliPage implements OnInit {
     private idP;
     private pa = new Partita();
 
-    constructor(private matchService: MatchService,
+    constructor(private matchService: PartitaService,
                 private activatedRoute: ActivatedRoute,
                 private utenteService: UtenteService,
                 private navController: NavController,
