@@ -4,8 +4,6 @@ import {MatchService, NewMatch} from '../../services/match.service';
 import {NavController} from '@ionic/angular';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
-import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
 
 @Component({
     selector: 'app-new-match',
@@ -17,13 +15,11 @@ export class NuovaPartitaPage implements OnInit {
     orap: Date = new Date();
     private user = new Utente();
     private newMatchFormModel: FormGroup;
-    private user$: Observable<Utente>;
 
     constructor(private formBuilder: FormBuilder,
                 private matchService: MatchService,
                 private navController: NavController,
-                private utenteService: UtenteService,
-                private activatedRoute: ActivatedRoute) {
+                private utenteService: UtenteService) {
     }
 
     ngOnInit() {
