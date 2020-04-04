@@ -3,10 +3,10 @@ import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-settings',
-    templateUrl: './settings.page.html',
-    styleUrls: ['./settings.page.scss'],
+    templateUrl: './impostazioni.page.html',
+    styleUrls: ['./impostazioni.page.scss'],
 })
-export class SettingsPage implements OnInit {
+export class ImpostazioniPage implements OnInit {
 
   constructor(private translateService: TranslateService) {
   }

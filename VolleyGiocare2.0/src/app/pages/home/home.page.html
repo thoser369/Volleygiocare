@@ -26,7 +26,7 @@
                 {{(m.data_ora | date:'dd/MM/yyyy' )+ " " +( m.ora | date: 'HH:mm')}}
                 <ion-row class="ion-no-padding">
                     <ion-col class="ion-text-left ion-padding-start=30px">
-                        <ion-button class="ion-float-end" color="primary" icon-start size="small" [routerLink]="['/details', m.id]" routerDirection="forward" >
+                        <ion-button class="ion-float-end" color="primary" icon-start size="small" [routerLink]="['/dettagli', m.id]" routerDirection="forward" >
                             <ion-icon name='create'></ion-icon>
                             {{'MATCH_DETAIL' | translate}}
                         </ion-button>

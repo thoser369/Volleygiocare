@@ -7,10 +7,10 @@ import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-my-matches',
-  templateUrl: './my-matches.page.html',
-  styleUrls: ['./my-matches.page.scss'],
+  templateUrl: './mie-partite.page.html',
+  styleUrls: ['./mie-partite.page.scss'],
 })
-export class MyMatchesPage implements OnInit {
+export class MiePartitePage implements OnInit {
 
     private miepartite$: Observable<Partita[]>;
     private terminate$: Observable<Partita[]>;

@@ -10,10 +10,10 @@ import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-details',
-    templateUrl: './details.page.html',
-    styleUrls: ['./details.page.scss'],
+    templateUrl: './dettagli.page.html',
+    styleUrls: ['./dettagli.page.scss'],
 })
-export class DetailsPage implements OnInit {
+export class DettagliPage implements OnInit {
     private match$: Observable<Partita>;
     private m = new Partita();
     private idG;

@@ -9,10 +9,10 @@ import {Feedback} from '../../model/feedback.model';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.scss'],
+  templateUrl: './profilo.page.html',
+  styleUrls: ['./profilo.page.scss'],
 })
-export class ProfilePage implements OnInit {
+export class ProfiloPage implements OnInit {
     private utente$: BehaviorSubject<Utente>;
     private feedback$: Observable<Feedback[]>;
     private media; media1; media2; media3; media4; media5; numero_recensioni; numero_partite_giocate;

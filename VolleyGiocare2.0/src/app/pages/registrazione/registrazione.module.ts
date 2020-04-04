@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegistrationPage } from './registration.page';
+import { RegistrazionePage } from './registrazione.page';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
 import {createTranslateLoader} from '../../app.module';
@@ -13,7 +13,7 @@ import {createTranslateLoader} from '../../app.module';
 const routes: Routes = [
   {
     path: '',
-    component: RegistrationPage
+    component: RegistrazionePage
   }
 ];
 
@@ -32,6 +32,6 @@ const routes: Routes = [
         }),
         ReactiveFormsModule
     ],
-  declarations: [RegistrationPage]
+  declarations: [RegistrazionePage]
 })
-export class RegistrationPageModule {}
+export class RegistrazionePageModule {}

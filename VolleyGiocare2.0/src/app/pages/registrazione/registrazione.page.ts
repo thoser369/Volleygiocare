@@ -8,10 +8,10 @@ import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-registration',
-    templateUrl: './registration.page.html',
-    styleUrls: ['./registration.page.scss'],
+    templateUrl: './registrazione.page.html',
+    styleUrls: ['./registrazione.page.scss'],
 })
-export class RegistrationPage implements OnInit {
+export class RegistrazionePage implements OnInit {
     private signUpFormModel: FormGroup;
     private loginTitle: string;
     private loginSubTitle: string;

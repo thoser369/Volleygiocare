@@ -77,7 +77,7 @@ export class LoginPage implements OnInit {
     }
 
     onReg() {
-        this.navController.navigateRoot('registration');
+        this.navController.navigateRoot('registrazione');
     }
 
     async showLoginError() {

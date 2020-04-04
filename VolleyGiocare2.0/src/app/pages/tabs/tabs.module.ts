@@ -25,20 +25,20 @@ const routes: Routes = [
 
 
             {
-                path: 'profile',
+                path: 'profilo',
                 children: [
                     {
                         path: '',
-                        loadChildren: '../profile/profile.module#ProfilePageModule'
+                        loadChildren: '../profilo/profilo.module#ProfiloPageModule'
                     }
                 ]
             },
             {
-                path: 'my-matches',
+                path: 'mie-partite',
                 children: [
                     {
                         path: '',
-                        loadChildren: '../my-matches/my-matches.module#MyMatchesPageModule'
+                        loadChildren: '../mie-partite/mie-partite.module#MiePartitePageModule'
                     }
                 ]
             },

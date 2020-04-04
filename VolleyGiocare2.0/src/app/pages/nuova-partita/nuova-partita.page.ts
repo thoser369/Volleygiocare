@@ -9,10 +9,10 @@ import {Observable} from 'rxjs';
 
 @Component({
     selector: 'app-new-match',
-    templateUrl: './new-match.page.html',
-    styleUrls: ['./new-match.page.scss'],
+    templateUrl: './nuova-partita.page.html',
+    styleUrls: ['./nuova-partita.page.scss'],
 })
-export class NewMatchPage implements OnInit {
+export class NuovaPartitaPage implements OnInit {
     datap: Date = new Date();
     orap: Date = new Date();
     private user = new Utente();

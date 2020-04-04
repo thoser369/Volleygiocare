@@ -29,7 +29,7 @@ export class HomePage implements OnInit {
 
 
     goToNew() {
-        this.navController.navigateRoot('/new-match');
+        this.navController.navigateRoot('/nuova-partita');
     }
 
     reload(event) {

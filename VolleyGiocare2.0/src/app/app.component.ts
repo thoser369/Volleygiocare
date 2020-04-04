@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
     public appPages = [
         {
             title: 'IMPOSTAZIONI',
-            url: '/settings',
+            url: '/impostazioni',
             icon: 'settings'
         },
 

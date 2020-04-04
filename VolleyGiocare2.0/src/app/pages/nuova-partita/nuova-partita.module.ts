@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SettingsPage } from './settings.page';
+import { NuovaPartitaPage } from './nuova-partita.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {
     path: '',
-    component: SettingsPage
+    component: NuovaPartitaPage
   }
 ];
 
@@ -21,8 +21,9 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
-        TranslateModule
+        TranslateModule,
+        ReactiveFormsModule
     ],
-  declarations: [SettingsPage]
+  declarations: [NuovaPartitaPage]
 })
-export class SettingsPageModule {}
+export class NuovaPartitaPageModule {}
