@@ -86,26 +86,6 @@ export class MatchService {
         console.log('chiamata');
 
     }
-
-    lasciaFeedback(feedback: Feedback) {
-        const params = new HttpParams()
-            .set('commento', feedback.commento)
-            .set('voto', feedback.voto)
-            .set('id_giocatore_votato', feedback.id_giocatore_votato.toString())
-            .set('id_partita', feedback.id_partita.toString());
-
-        return this.http.post(URL.VOTAZIONE, params, {observe: 'response'});
-    }
-
-    checkFeedback(partita: Partita, giocatore: Utente): Observable<Feedback> {
-        const params = new HttpParams()
-            .set('id_giocatore', giocatore.id.toString())
-            .set('id_partita', partita.id.toString());
-
-        return this.http.post<Feedback>(URL.CHECKFEEDBACK, params);
-
-
-    }
     findGiocatori(partitaID: number): Observable<Utente[]> {
         const apiURL = `${URL.FEEDBACKPARTITA}/${partitaID}`;
         return this.http.get<Utente[]>(apiURL);

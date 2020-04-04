@@ -31,10 +31,6 @@ Route::get('/api/mymatches', 'matchesController@my_Matches');
 
 Route::get('/api/terminated', 'matchesController@partite_terminate');
 
-Route::post('api/checkFeedback', 'feedbackController@checkFeedback');
-
-Route::post('api/votazione', 'feedbackController@addVoto');
-
 Route::post('/api/updateDescription', 'ProfileController@updateDescr');
 
 Route::get('api/feedbackP/{id}', 'matchesController@feedbackPlayers');

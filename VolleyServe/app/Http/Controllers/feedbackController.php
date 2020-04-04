@@ -53,33 +53,6 @@ class feedbackController extends Controller
             'check' => $check
         ]);
     }
-    public function checkFeedback(Request $request){
-        $access_token = $request->header('token');
-
-        $id_giocatore_votante = DB::table('users')
-            ->select('id')
-            ->where('users.token', '=', $access_token)
-            ->value('id');
-
-       // $feedback = DB::table('feedback')
-            //->select('commento', 'voto')
-            //->where('id_giocatore_votante', '=', $id_giocatore_votante)
-           // ->where('id_giocatore_votato', '=', $request->input('id_giocatore'))
-            //->where('id_partita', '=', $request->input('id_partita'))
-           // ->get();
-
-        $check = DB::table('feedback')
-            ->where('id_partita', '=', $request->input('id_partita'))
-            ->where('id_giocatore_votato', '=', $request->input('id_giocatore'))
-            ->where('id_giocatore_votante', '=', $id_giocatore_votante)
-            ->count('id');
-
-        return response()->json([
-           // 'feedback' => $feedback,
-            'check' => $check
-        ]);
-
-    }
 
     public function getMedia(Request $request){
         $access_token = $request->header('token');

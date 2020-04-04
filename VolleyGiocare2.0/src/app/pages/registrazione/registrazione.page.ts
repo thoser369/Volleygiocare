@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {AlertController, NavController} from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Account, UtenteService} from '../../services/utente.service';
-import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -21,8 +20,7 @@ export class RegistrazionePage implements OnInit {
                 private formBuilder: FormBuilder,
                 private utenteService: UtenteService,
                 private alertController: AlertController,
-                private translateService: TranslateService,
-                private router: Router) {
+                private translateService: TranslateService) {
     }
 
     ngOnInit() {
