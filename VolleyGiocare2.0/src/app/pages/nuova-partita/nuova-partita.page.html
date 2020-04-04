@@ -18,38 +18,26 @@
     <form [formGroup]="newMatchFormModel" class="list-form">
     <ion-list>
 
-       <!-- <ion-item  padding-end align-items-start >
-            <ion-icon name="person" slot="start"></ion-icon>
-            <ion-input formControlName="org"></ion-input>
-        </ion-item>-->
-
         <ion-item class="ion-padding-end ion-align-items-start" >
             <ion-icon name="bookmark" slot="start"></ion-icon>
-            <ion-input placeholder="Title" formControlName="titolo"></ion-input>
+            <ion-input placeholder="{{'TITOLO' | translate}}" formControlName="titolo"></ion-input>
         </ion-item>
 
         <ion-item class="ion-padding-end ion-align-items-start" >
             <ion-icon name="pin" slot="start"></ion-icon>
-            <ion-input placeholder="Location" formControlName="luogo"></ion-input>
+            <ion-input placeholder="{{'LUOGO' | translate}}" formControlName="luogo"></ion-input>
         </ion-item>
-
-       <!-- <ion-item class="text10">
-            <ion-icon name="time" slot="start"></ion-icon>
-           // <ion-input placeholder="Date and Time"></ion-input>
-            <ion-datetime display-format="YYYY-MM-DDTHH:mm" picker-format="YYYY-MM-DDTHH:mm" value="0000-00-00T00:00"></ion-datetime>
-        </ion-item>-->
-
 
 
         <ion-item class="ion-padding-end ion-align-items-start" >
             <ion-icon name="person" slot="start"></ion-icon>
-            <ion-input placeholder="Giocatori richiesti" formControlName="numero_giocatori"></ion-input>
+            <ion-input placeholder="{{'GIOCATORI_RICHIESTI'|translate}}" formControlName="numero_giocatori"></ion-input>
         </ion-item>
 
         <ion-item >
             <ion-icon name="create" slot="start" class="ion-no-padding"></ion-icon>
             <ion-label position="floating" class="text08"></ion-label>
-            <ion-textarea placeholder="Inserisci una descrizione" formControlName="descrizione" maxlength="100"></ion-textarea>
+            <ion-textarea placeholder="{{'INSERISCI_DESCRIZIONE'| translate}}" formControlName="descrizione" maxlength="100"></ion-textarea>
         </ion-item>
 
         <ion-item class="ion-padding-end ion-align-items-start" >
