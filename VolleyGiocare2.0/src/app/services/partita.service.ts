@@ -40,12 +40,12 @@ export class PartitaService {
     }
 
 
-    list(idU): Observable<Partita[]> {
-        const apiUt = `${URL.PARTITE}/${idU}`;
+    listapartite(idUtente): Observable<Partita[]> {
+        const apiUt = `${URL.PARTITE}/${idUtente}`;
         return this.http.get<Partita[]>(apiUt);
     }
 
-    findById(id): Observable<Partita> {
+    cerca_tramite_id(id): Observable<Partita> {
         const apiURL = `${URL.DETTAGLI}/${id}`;
         return this.http.get<Partita>(apiURL);
     }
@@ -76,17 +76,17 @@ export class PartitaService {
     }
 
 
-    aggiungi() {
-        return this.http.get<Partita>(URL.PARTECIPA);
+    aggiungi_organizzatore() {
+        return this.http.get<Partita>(URL.AGGIUNGI_ORGANIZZATORE);
     }
 
-    clicca(idG, idP) {
-        const apiPart = `${URL.PARTECIPAZIONE}/${idG}/${idP}`;
+    partecipa(idGiocatore, idPartita) {
+        const apiPart = `${URL.PARTECIPAZIONE}/${idGiocatore}/${idPartita}`;
         return this.http.get<Partita>(apiPart);
         console.log('chiamata');
 
     }
-    findGiocatori(partitaID: number): Observable<Utente[]> {
+    cercaGiocatori(partitaID: number): Observable<Utente[]> {
         const apiURL = `${URL.FEEDBACKPARTITA}/${partitaID}`;
         return this.http.get<Utente[]>(apiURL);
     }

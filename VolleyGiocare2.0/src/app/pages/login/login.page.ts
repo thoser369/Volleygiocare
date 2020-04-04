@@ -76,7 +76,7 @@ export class LoginPage implements OnInit {
             });
     }
 
-    onReg() {
+    onRegistrazione() {
         this.navController.navigateRoot('registrazione');
     }
 

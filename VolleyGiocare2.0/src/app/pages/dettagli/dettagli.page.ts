@@ -14,13 +14,13 @@ import {NavController} from '@ionic/angular';
     styleUrls: ['./dettagli.page.scss'],
 })
 export class DettagliPage implements OnInit {
-    private match$: Observable<Partita>;
-    private m = new Partita();
-    private idG;
-    private idP;
-    private pa = new Partita();
+    private partita$: Observable<Partita>;
+    private partita = new Partita();
+    private idGiocatore;
+    private idPartita;
+    private partita2 = new Partita();
 
-    constructor(private matchService: PartitaService,
+    constructor(private partitaService: PartitaService,
                 private activatedRoute: ActivatedRoute,
                 private utenteService: UtenteService,
                 private navController: NavController,
@@ -31,16 +31,16 @@ export class DettagliPage implements OnInit {
     ngOnInit() {
 
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-            this.match$ = this.matchService.findById(parseInt(params.get('id'), 0));
+            this.partita$ = this.partitaService.cerca_tramite_id(parseInt(params.get('id'), 0));
           //  console.log(params);
         });
 
        // console.log(this.match$);
 
-        this.match$.subscribe(res => {
-            this.pa.id = res[0].id;
-            console.log(this.pa.id);
-            this.m = res[0];
+        this.partita$.subscribe(res => {
+            this.partita2.id = res[0].id;
+            console.log(this.partita2.id);
+            this.partita = res[0];
             console.log(res);
             // console.log(res[0].titolo);
             // this.m.titolo = res[0].titolo;
@@ -51,11 +51,11 @@ export class DettagliPage implements OnInit {
 
     onPartecipa() {
         this.utenteService.getUtente().subscribe(res1 => {
-            this.idG = res1.id;
+            this.idGiocatore = res1.id;
         });
 
-        this.idP = this.pa.id;
-        this.matchService.clicca(this.idG, this.idP).subscribe(res => {
+        this.idPartita = this.partita2.id;
+        this.partitaService.partecipa(this.idGiocatore, this.idPartita).subscribe(res => {
            // console.log(res);
         });
         this.router.navigateByUrl('/tabs');

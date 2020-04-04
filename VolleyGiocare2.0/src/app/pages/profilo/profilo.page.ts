@@ -48,7 +48,7 @@ export class ProfiloPage implements OnInit {
             event.target.complete();
         }, 500);
     }
-    async update() {
+    async aggiorna_descrizione() {
 
         const alert = await this.alertController.create({
                 message: 'Modifica Descrizione',

@@ -13,18 +13,18 @@ import {UtenteService} from '../../services/utente.service';
 export class NuovaPartitaPage implements OnInit {
     datap: Date = new Date();
     orap: Date = new Date();
-    private user = new Utente();
+    private utente = new Utente();
     private newMatchFormModel: FormGroup;
 
     constructor(private formBuilder: FormBuilder,
-                private matchService: PartitaService,
+                private partitaService: PartitaService,
                 private navController: NavController,
                 private utenteService: UtenteService) {
     }
 
     ngOnInit() {
         this.utenteService.getUtente().subscribe(res => {
-            this.user = res;
+            this.utente = res;
            // console.log(this.user.id);
         });
 
@@ -71,12 +71,12 @@ export class NuovaPartitaPage implements OnInit {
 
     onCreateNew() {
        // console.log(this.user.id);
-        this.newMatchFormModel.patchValue({org: this.user.id});
-        const nm: NewMatch = this.newMatchFormModel.value;
-        this.matchService.create(nm).subscribe(() => {
+        this.newMatchFormModel.patchValue({org: this.utente.id});
+        const nuova_partita: NewMatch = this.newMatchFormModel.value;
+        this.partitaService.create(nuova_partita).subscribe(() => {
             this.newMatchFormModel.reset();
             this.navController.navigateRoot('/tabs/home').then((result) => {
-                this.matchService.aggiungi().subscribe(res => {
+                this.partitaService.aggiungi_organizzatore().subscribe(res => {
                    // console.log(res);
                 });
             });

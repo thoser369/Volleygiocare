@@ -29,7 +29,7 @@ export class GiocatoriPage implements OnInit {
 
     ngOnInit() {
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-            this.giocatori$ = this.partitaService.findGiocatori(parseInt(params.get('id'), 0));
+            this.giocatori$ = this.partitaService.cercaGiocatori(parseInt(params.get('id'), 0));
             // tslint:disable-next-line:radix
             this.id_partita = parseInt(params.get('id'));
         });

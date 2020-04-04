@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalController, NavController} from '@ionic/angular';
+import {NavController} from '@ionic/angular';
 import {Observable} from 'rxjs';
 import {Partita} from '../../model/partita.model';
 import {PartitaService} from '../../services/partita.service';
@@ -12,14 +12,13 @@ import {UtenteService} from '../../services/utente.service';
     styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-    private matches$: Observable<Partita[]>;
-    private user = new Utente();
-    private idU;
+    private partite$: Observable<Partita[]>;
+    private utente = new Utente();
+    private idUtente;
 
     constructor(private navController: NavController,
-                private matchService: PartitaService,
-                private utenteService: UtenteService,
-                private modalController: ModalController) {
+                private partitaService: PartitaService,
+                private utenteService: UtenteService) {
     }
 
     ngOnInit() {
@@ -33,7 +32,7 @@ export class HomePage implements OnInit {
     }
 
     reload(event) {
-        this.matches$ = this.matchService.list(this.idU);
+        this.partite$ = this.partitaService.listapartite(this.idUtente);
         setTimeout(() => {
             event.target.complete();
         }, 2000);
@@ -41,13 +40,13 @@ export class HomePage implements OnInit {
 
     ionViewWillEnter() {
         this.utenteService.getUtente().subscribe(res => {
-            this.user = res;
-            this.idU = res.id;
-            //console.log(res);
+            this.utente = res;
+            this.idUtente = res.id;
+            // console.log(res);
         });
 
-        this.matches$ = this.matchService.list(this.idU);
-        this.matches$.subscribe(res1 => {
+        this.partite$ = this.partitaService.listapartite(this.idUtente);
+        this.partite$.subscribe(res1 => {
            // console.log(res1);
         });
 
