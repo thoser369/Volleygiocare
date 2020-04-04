@@ -13,11 +13,11 @@ export const URL_BASE = USE_PROXY ? '/api' : 'http://127.0.0.1:8000';
 
 
 export const URL = {
-    SIGNUP: URL_BASE + '/auth/register',
+    REGISTRAZIONE: URL_BASE + '/auth/register',
     LOGIN: URL_BASE + '/auth/login',
-    MATCHES: URL_BASE + '/home',
-    MATCH_DETAIL: URL_BASE + '/matchD',
-    NM : URL_BASE + '/newM',
+    PARTITE: URL_BASE + '/home',
+    DETTAGLI: URL_BASE + '/matchD',
+    NUOVAPARTITA : URL_BASE + '/newM',
     LOGOUT: URL_BASE + '/auth/logout',
     PARTECIPA: URL_BASE + '/partecipa',
     PARTECIPAZIONE: URL_BASE + '/aggiunta',

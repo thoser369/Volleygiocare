@@ -110,7 +110,7 @@ export class UtenteService {
         console.log(params.get('favourite_role'));*/
 
         // const signUpUrl = `${URL.SIGNUP}/?${params}`;
-        return this.http.post<Utente>(URL.SIGNUP, params, {observe: 'response'}).pipe(
+        return this.http.post<Utente>(URL.REGISTRAZIONE, params, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
                 // console.log(resp);
 

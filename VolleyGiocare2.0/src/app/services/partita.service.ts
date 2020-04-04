@@ -41,12 +41,12 @@ export class PartitaService {
 
 
     list(idU): Observable<Partita[]> {
-        const apiUt = `${URL.MATCHES}/${idU}`;
+        const apiUt = `${URL.PARTITE}/${idU}`;
         return this.http.get<Partita[]>(apiUt);
     }
 
     findById(id): Observable<Partita> {
-        const apiURL = `${URL.MATCH_DETAIL}/${id}`;
+        const apiURL = `${URL.DETTAGLI}/${id}`;
         return this.http.get<Partita>(apiURL);
     }
 
@@ -69,7 +69,7 @@ export class PartitaService {
 
 
         // const signUpUrl = `${URL.SIGNUP}/?${params}`;
-        return this.http.post<Partita>(URL.NM, nm, {observe: 'response'}).pipe(
+        return this.http.post<Partita>(URL.NUOVAPARTITA, nm, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Partita>) => {
                 console.log(resp);
             }));
