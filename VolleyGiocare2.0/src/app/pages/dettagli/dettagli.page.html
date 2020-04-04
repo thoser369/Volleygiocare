@@ -11,17 +11,17 @@
 
     <ion-card>
         <ion-card-header>
-            <ion-card-title class="text-dark"> Titolo: </ion-card-title>
+            <ion-card-title class="text-dark"> {{'TITOLO_D' | translate}} </ion-card-title>
         </ion-card-header>
         <ion-card-content class="dett">
 
-            <b>Descrizione:</b> {{" "+ partita.descrizione +  ""}}
+            <b>{{'DESCRIZIONE_D' | translate}}</b> {{" "+ partita.descrizione +  ""}}
         <br>
             <br>
-            <b>Numero giocatori richiesti:</b> {{" " + partita.numero_giocatori + " "}}
+            <b>{{'NUMERO_GIOCATORI_RICHIESTI' | translate}}</b> {{" " + partita.numero_giocatori + " "}}
         <br>
             <br>
-            <b>Luogo:</b> {{" "+ partita.luogo +" "}}
+            <b>{{'LUOGO_D' | translate}}</b> {{" "+ partita.luogo +" "}}
         </ion-card-content>
     </ion-card>
 
