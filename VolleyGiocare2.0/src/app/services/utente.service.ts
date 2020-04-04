@@ -93,7 +93,7 @@ export class UtenteService {
     }
 
 
-    signUp(account: Account) {
+    Registrazione(account: Account) {
         const params = new HttpParams()
             .set('email', account.email)
             .set('password', account.password)

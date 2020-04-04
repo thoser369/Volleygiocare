@@ -48,9 +48,9 @@ export class RegistrazionePage implements OnInit {
     }
 
 
-    onSignUp() {
+    onRegistrazione() {
         const account: Account = this.signUpFormModel.value;
-        this.utenteService.signUp(account).subscribe(() => {
+        this.utenteService.Registrazione(account).subscribe(() => {
                 this.signUpFormModel.reset();
                 // this.showLoginError('Esegui il login', 'Utente creato');
                 this.navController.navigateRoot('/login');
