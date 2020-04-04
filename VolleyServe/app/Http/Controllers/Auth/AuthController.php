@@ -36,6 +36,7 @@ class AuthController extends Controller
                 'partite_totali' => $user->partite_totali,
                 'descrizione' => $user->descrizione,
                 'email' => $user -> email,
+                'ruolo' => $user ->favourite_role
 
 
             ], 200)->withHeaders([ 'token' => $token]);

@@ -1,7 +1,7 @@
 export class Utente {
     id: bigint;
-    name: string;
-    surname: string;
+    nome: string;
+    cognome: string;
     email: string;
     password: string;
     ruolo: string;
