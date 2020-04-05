@@ -7,7 +7,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
 
     <ion-refresher slot="fixed" (ionRefresh)="reload($event)">
         <ion-refresher-content pullingIcon="arrow-dropdown"
@@ -16,17 +16,22 @@
     </ion-refresher>
 
     <ion-list>
-        <ion-card *ngFor="let partita of (partite$ | async)" class="back_cards" >
+        <ion-card *ngFor="let partita of (partite$ | async)" class="back_cards">
             <ion-card-header>
-                <ion-card-subtitle *ngFor="let organizzatore of partita.organizzatore"> <div ><ion-icon name="person" ></ion-icon>{{" " + organizzatore['nome'] + " " +organizzatore['cognome']}}</div> </ion-card-subtitle>
+                <ion-card-subtitle *ngFor="let organizzatore of partita.organizzatore">
+                    <div>
+                        <ion-icon name="person"></ion-icon>
+                        {{" " + organizzatore['nome'] + " " + organizzatore['cognome']}}</div>
+                </ion-card-subtitle>
                 <ion-card-title class="tit"> {{partita.titolo}} </ion-card-title>
             </ion-card-header>
 
             <ion-card-content>
-                {{(partita.data_ora | date:'dd/MM/yyyy' )+ " " +( partita.data_ora | date: 'HH:mm')}}
+                {{(partita.data_ora | date:'dd/MM/yyyy') + " " + (partita.data_ora | date: 'HH:mm')}}
                 <ion-row class="ion-no-padding">
                     <ion-col class="ion-text-left ion-padding-start=30px">
-                        <ion-button class="ion-float-end" color="primary" icon-start size="small" [routerLink]="['/dettagli', partita.id]" routerDirection="forward" >
+                        <ion-button class="ion-float-end" color="primary" icon-start size="small"
+                                    [routerLink]="['/dettagli', partita.id]" routerDirection="forward">
                             <ion-icon name='create'></ion-icon>
                             {{'DETTAGLI_PARTITA' | translate}}
                         </ion-button>
@@ -40,7 +45,7 @@
 
     <!-- fab placed to the top end -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button (click)="goToNew()">
+        <ion-fab-button color="tertiary" (click)="goToNew()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>

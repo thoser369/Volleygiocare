@@ -11,31 +11,32 @@
 
     <ion-card>
         <ion-card-header>
-            <ion-card-title class="text-dark"> {{'DETTAGLI_PARTITA' | translate}} </ion-card-title>
+            <ion-card-title class="text-dark"><b> {{'DETTAGLI_PARTITA' | translate}}</b></ion-card-title>
         </ion-card-header>
-        <ion-card-content class="dett">
-
-            <b>{{'DESCRIZIONE_DETTAGLI' | translate}}:</b> {{" "+ partita.descrizione +  ""}}
-        <br>
+        <ion-card-content class="dett" >
+            <b>{{'DESCRIZIONE_DETTAGLI' | translate}}:</b> {{" " + partita.descrizione + ""}}
+            <br>
             <br>
             <b>{{'NUMERO_GIOCATORI_RICHIESTI_DETTAGLI' | translate}}:</b> {{" " + partita.numero_giocatori + " "}}
-        <br>
             <br>
-            <b>{{'LUOGO_DETTAGLI' | translate}} :</b> {{" "+ partita.luogo +" "}}
+            <br>
+            <b>{{'LUOGO_DETTAGLI' | translate}} :</b> {{" " + partita.luogo + " "}}
         </ion-card-content>
     </ion-card>
 
 
-    <div class="dettagli" >
-        <ion-button *ngIf="partita.numero_giocatori > 0 " icon-left size="medium" expand="full" shape="round" color="primary" (click)="onPartecipa()"  tappable>
+    <div class="dettagli">
+        <ion-button *ngIf="partita.numero_giocatori > 0 " icon-left size="medium" expand="full" shape="round"
+                    color="primary" (click)="onPartecipa()" tappable>
             <ion-icon name="heart"></ion-icon>
             {{'PARTECIPA' | translate}}
         </ion-button>
     </div>
 
     <div class="ion-margin-top=">
-        <ion-button *ngIf="partita.numero_giocatori <= 0 " icon-left size="medium" expand="full" shape="round" color="primary"   disabled>
-            <ion-icon ></ion-icon>
+        <ion-button *ngIf="partita.numero_giocatori <= 0 " icon-left size="medium" expand="full" shape="round"
+                    color="primary" disabled>
+            <ion-icon></ion-icon>
             Rimuovi partecipazione
         </ion-button>
     </div>

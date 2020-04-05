@@ -1,75 +1,80 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title class ="ion-text-center">{{'REGISTRAZIONE_PAGE' | translate}}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">{{'REGISTRAZIONE_PAGE' | translate}}</ion-title>
+    </ion-toolbar>
 </ion-header>
-<ion-content  class="animated fadeIn login auth-page ion-padding">
+<ion-content class="animated fadeIn login auth-page ion-padding">
 
-  <div class="theme-bg"></div>
-  <div class="auth-content">
-
-
-    <!-- Logo-->
-  <div class="animated fadeInDown ion-padding-horizontal">
-    <div class="logoR"></div>
-  </div>
-  </div>
+    <div class="theme-bg"></div>
+    <div class="auth-content">
 
 
-
-  <!-- SignUpForm -->
-  <form [formGroup]="signUpFormModel" class="list-form">
-  <ion-item class="text08">
-   <ion-icon name="person" class="ion-padding-end ion-align-items-start" ></ion-icon>
-    <ion-input  placeholder=" {{'NOME'| translate }}" class="ion-padding-start"   formControlName="nome"></ion-input>
-  </ion-item>
-
-  <ion-item class="text08">
-    <ion-icon name="person" class="ion-padding-end ion-align-items-start" ></ion-icon>
-    <ion-input  placeholder=" {{'COGNOME'| translate }}" formControlName="cognome"></ion-input>
-  </ion-item>
+        <!-- Logo-->
+        <div class="animated fadeInDown ion-padding-horizontal">
+            <div class="logoR"></div>
+        </div>
+    </div>
 
 
-  <ion-item class="text08">
-    <ion-icon name="at" class="ion-padding-end" ></ion-icon>
-    <ion-input  placeholder=" {{'EMAIL'| translate }}" formControlName="email"></ion-input>
-  </ion-item>
+    <!-- SignUpForm -->
+    <form [formGroup]="signUpFormModel" class="list-form">
+        <ion-item class="text08">
+            <ion-icon name="person" class="ion-padding-end ion-align-items-start"></ion-icon>
+            <ion-input placeholder=" {{'NOME'| translate }}" class="ion-padding-start"
+                       formControlName="nome"></ion-input>
+        </ion-item>
 
-  <ion-item class="text08">
-    <ion-icon name="lock" class="ion-padding-end ion-align-items-start"></ion-icon>
-    <ion-input  type="password" placeholder=" {{'PASSWORD'| translate }}" class="ion-padding-start"  formControlName="password"></ion-input>
-  </ion-item>
+        <ion-item class="text08">
+            <ion-icon name="person" class="ion-padding-end ion-align-items-start"></ion-icon>
+            <ion-input placeholder=" {{'COGNOME'| translate }}" formControlName="cognome"></ion-input>
+        </ion-item>
 
-    <ion-item class="text08">
-      <ion-icon name="call" class="ion-padding-end ion-align-items-start" ></ion-icon>
-      <ion-input  placeholder=" {{'NUMERO_TELEFONO'| translate }}" class="ion-padding-start"  formControlName="numero_telefonico"></ion-input>
-    </ion-item>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>{{'RUOLO_PREFERITO' | translate}}</ion-label>
-      <ion-select placeholder="{{'SELEZIONA' | translate}}" (ionChange)="changeL($event)" formControlName="ruolo">
-        <ion-select-option value="palleggiatore">{{'PALLEGGIATORE' | translate}}</ion-select-option>
-        <ion-select-option value="libero">{{'LIBERO' | translate}}</ion-select-option>
-        <ion-select-option value="martello">{{'MARTELLO' | translate}}</ion-select-option>
-        <ion-select-option value="centrale">{{'CENTRALE' | translate}}</ion-select-option>
-        <ion-select-option value="opposto">{{'OPPOSTO' | translate}}</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+        <ion-item class="text08">
+            <ion-icon name="at" class="ion-padding-end"></ion-icon>
+            <ion-input placeholder=" {{'EMAIL'| translate }}" formControlName="email"></ion-input>
+        </ion-item>
 
-  <div class="ion-margin-top" >
-    <ion-button icon-left size="medium" expand="full" shape="round" color="tertiary" (click)="onRegistrazione()"  [disabled]="!signUpFormModel.valid" tappable>
-      <ion-icon name="done-all" class="ion-padding-end" ></ion-icon>
-      {{ 'CONFERMA_REGISTRAZIONE' | translate }}
-    </ion-button>
-  </div>
+        <ion-item class="text08">
+            <ion-icon name="lock" class="ion-padding-end ion-align-items-start"></ion-icon>
+            <ion-input type="password" placeholder=" {{'PASSWORD'| translate }}" class="ion-padding-start"
+                       formControlName="password"></ion-input>
+        </ion-item>
 
-  <div class="ion-margin-top">
-    <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onLogin()"  tappable>
-      <ion-icon name="log-in"  class="ion-padding-end" ></ion-icon>
-      {{ 'LOGIN' | translate }}
-    </ion-button>
-  </div>
-  </form>
+        <ion-item class="text08">
+            <ion-icon name="call" class="ion-padding-end ion-align-items-start"></ion-icon>
+            <ion-input placeholder=" {{'NUMERO_TELEFONO'| translate }}" class="ion-padding-start"
+                       formControlName="numero_telefonico"></ion-input>
+        </ion-item>
+
+        <ion-list>
+            <ion-item>
+                <ion-label>{{'RUOLO_PREFERITO' | translate}}</ion-label>
+                <ion-select placeholder="{{'SELEZIONA' | translate}}" (ionChange)="changeL($event)"
+                            formControlName="ruolo">
+                    <ion-select-option value="palleggiatore">{{'PALLEGGIATORE' | translate}}</ion-select-option>
+                    <ion-select-option value="libero">{{'LIBERO' | translate}}</ion-select-option>
+                    <ion-select-option value="martello">{{'MARTELLO' | translate}}</ion-select-option>
+                    <ion-select-option value="centrale">{{'CENTRALE' | translate}}</ion-select-option>
+                    <ion-select-option value="opposto">{{'OPPOSTO' | translate}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <div class="ion-margin-top">
+            <ion-button icon-left size="medium" expand="full" shape="round" color="tertiary" (click)="onRegistrazione()"
+                        [disabled]="!signUpFormModel.valid" tappable>
+                <ion-icon name="done-all" class="ion-padding-end"></ion-icon>
+                {{ 'CONFERMA_REGISTRAZIONE' | translate }}
+            </ion-button>
+        </div>
+
+        <div class="ion-margin-top">
+            <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onLogin()"
+                        tappable>
+                <ion-icon name="log-in" class="ion-padding-end"></ion-icon>
+                {{ 'LOGIN' | translate }}
+            </ion-button>
+        </div>
+    </form>
 </ion-content>

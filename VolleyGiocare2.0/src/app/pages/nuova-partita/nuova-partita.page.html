@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary" >
+    <ion-toolbar color="primary">
         <ion-buttons slot="start">
             <ion-back-button defaultHref="tabs/home"></ion-back-button>
         </ion-buttons>
@@ -16,59 +16,62 @@
     </div>
 
     <form [formGroup]="nuovaPartitaFormModel" class="list-form">
-    <ion-list>
-
-        <ion-item class="ion-padding-end ion-align-items-start" >
-            <ion-icon name="bookmark" slot="start"></ion-icon>
-            <ion-input placeholder="{{'TITOLO' | translate}}" formControlName="titolo"></ion-input>
-        </ion-item>
-
-        <ion-item class="ion-padding-end ion-align-items-start" >
-            <ion-icon name="pin" slot="start"></ion-icon>
-            <ion-input placeholder="{{'LUOGO' | translate}}" formControlName="luogo"></ion-input>
-        </ion-item>
-
-
-        <ion-item class="ion-padding-end ion-align-items-start" >
-            <ion-icon name="person" slot="start"></ion-icon>
-            <ion-input placeholder="{{'GIOCATORI_RICHIESTI'|translate}}" formControlName="numero_giocatori"></ion-input>
-        </ion-item>
-
-        <ion-item >
-            <ion-icon name="create" slot="start" class="ion-no-padding"></ion-icon>
-            <ion-label position="floating" class="text08"></ion-label>
-            <ion-textarea placeholder="{{'INSERISCI_DESCRIZIONE'| translate}}" formControlName="descrizione" maxlength="100"></ion-textarea>
-        </ion-item>
-
-        <ion-item class="ion-padding-end ion-align-items-start">
-            <ion-label>{{'DATA_ORA' | translate}} </ion-label>
-            <ion-datetime placeholder="{{'SELEZIONA' | translate}}"
-                          display-format="DD MMM YYYY, HH:mm"
-                          formControlName="data_ora"
-                          min="{{minDate}}" max="2030-12-01"
-                          monthShortNames='Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic'
-                          doneText="{{'SELEZIONA' | translate}}"
-                          cancelText="{{'ANNULLA' | translate}}"></ion-datetime>
-        </ion-item>
-
-
         <ion-list>
-            <ion-item>
-                <ion-label>{{'TIPO' | translate}}</ion-label>
-                <ion-select placeholder="{{'SELEZIONA' | translate}}" formControlName="tipo">
-                    <ion-select-option value="volley"> Volley </ion-select-option>
-                    <ion-select-option value="beach">Beach</ion-select-option>
-                </ion-select>
+
+            <ion-item class="ion-padding-end ion-align-items-start">
+                <ion-icon name="bookmark" slot="start"></ion-icon>
+                <ion-input placeholder="{{'TITOLO' | translate}}" formControlName="titolo"></ion-input>
             </ion-item>
+
+            <ion-item class="ion-padding-end ion-align-items-start">
+                <ion-icon name="pin" slot="start"></ion-icon>
+                <ion-input placeholder="{{'LUOGO' | translate}}" formControlName="luogo"></ion-input>
+            </ion-item>
+
+
+            <ion-item class="ion-padding-end ion-align-items-start">
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-input placeholder="{{'GIOCATORI_RICHIESTI'|translate}}"
+                           formControlName="numero_giocatori"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="create" slot="start" class="ion-no-padding"></ion-icon>
+                <ion-label position="floating" class="text08"></ion-label>
+                <ion-textarea placeholder="{{'INSERISCI_DESCRIZIONE'| translate}}" formControlName="descrizione"
+                              maxlength="100"></ion-textarea>
+            </ion-item>
+
+            <ion-item class="ion-padding-end ion-align-items-start">
+                <ion-label>{{'DATA_ORA' | translate}} </ion-label>
+                <ion-datetime placeholder="{{'SELEZIONA' | translate}}"
+                              display-format="DD MMM YYYY, HH:mm"
+                              formControlName="data_ora"
+                              min="{{minDate}}" max="2030-12-01"
+                              monthShortNames='Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic'
+                              doneText="{{'SELEZIONA' | translate}}"
+                              cancelText="{{'ANNULLA' | translate}}"></ion-datetime>
+            </ion-item>
+
+
+            <ion-list>
+                <ion-item>
+                    <ion-label>{{'TIPO' | translate}}</ion-label>
+                    <ion-select placeholder="{{'SELEZIONA' | translate}}" formControlName="tipo">
+                        <ion-select-option value="volley"> Volley</ion-select-option>
+                        <ion-select-option value="beach">Beach</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+
+
         </ion-list>
-
-
-    </ion-list>
     </form>
 
     <div class="ion-margin-top ion-padding-top">
-        <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onCreateNew()"  tappable>
-            <ion-icon name="log-in" class="ion-padding-end" ></ion-icon>
+        <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onCreateNew()"
+                    tappable>
+            <ion-icon name="log-in" class="ion-padding-end"></ion-icon>
             {{'CREA_PARTITA'| translate}}
         </ion-button>
     </div>
