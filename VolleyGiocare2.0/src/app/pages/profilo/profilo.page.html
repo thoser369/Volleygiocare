@@ -89,19 +89,19 @@
             <ion-col>
                 <ol class="ion-no-padding">
                     <li value="5">
-                        <ion-progress-bar [value]="media5" color="light"></ion-progress-bar>
+                        <ion-progress-bar [value]="media5" color="tertiary"></ion-progress-bar>
                     </li>
                     <li value="4">
-                        <ion-progress-bar [value]="media4" color="light"></ion-progress-bar>
+                        <ion-progress-bar [value]="media4" color="tertiary"></ion-progress-bar>
                     </li>
                     <li value="3">
-                        <ion-progress-bar [value]="media3" color="light"></ion-progress-bar>
+                        <ion-progress-bar [value]="media3" color="tertiary"></ion-progress-bar>
                     </li>
                     <li value="2">
-                        <ion-progress-bar [value]="media2" color="light"></ion-progress-bar>
+                        <ion-progress-bar [value]="media2" color="tertiary"></ion-progress-bar>
                     </li>
                     <li value="1">
-                        <ion-progress-bar [value]="media1" color="light"></ion-progress-bar>
+                        <ion-progress-bar [value]="media1" color="tertiary"></ion-progress-bar>
                     </li>
                 </ol>
             </ion-col>
@@ -120,20 +120,20 @@
                 <h2><b>{{f.id_giocatore_votante.nome}} {{f.id_giocatore_votante.cognome}}</b></h2>
                 <h3>{{f.commento}}</h3>
 
-                <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>2||f.voto==2" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>3||f.voto==3" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>4||f.voto==4" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>5||f.voto==5" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="tertiary"></ion-icon>
+                <ion-icon *ngIf="f.voto>2||f.voto==2" name="star" color="tertiary"></ion-icon>
+                <ion-icon *ngIf="f.voto>3||f.voto==3" name="star" color="tertiary"></ion-icon>
+                <ion-icon *ngIf="f.voto>4||f.voto==4" name="star" color="tertiary"></ion-icon>
+                <ion-icon *ngIf="f.voto>5||f.voto==5" name="star" color="tertiary"></ion-icon>
             </ion-label>
 
             <ion-label *ngIf="f.commento=='null'">
                 <h2><b>{{f.id_giocatore_votante.nome}}</b></h2>
-                <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>2||f.voto==2" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>3||f.voto==3" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>4||f.voto==4" name="star" color="primary"></ion-icon>
-                <ion-icon *ngIf="f.voto>5||f.voto==5" name="star" color="primary"></ion-icon>
+                <ion-icon *ngIf="f.voto>1||f.voto==1" name="star" color="tertiary"></ion-icon>
+                <ion-icon *ngIf="f.voto>2||f.voto==2" name="star" color="tertiary"></ion-icon>
+                <ion-icon *ngIf="f.voto>3||f.voto==3" name="star" color="tertiary"></ion-icon>
+                <ion-icon *ngIf="f.voto>4||f.voto==4" name="star" color="tertiary"></ion-icon>
+                <ion-icon *ngIf="f.voto>5||f.voto==5" name="star" color="tertiary"></ion-icon>
             </ion-label>
         </ion-item>
     </ion-list>

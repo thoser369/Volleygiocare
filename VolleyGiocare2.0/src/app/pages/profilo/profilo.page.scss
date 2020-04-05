@@ -13,10 +13,12 @@ ol li {
     margin-top: 5%;
 }
 
+
 ion-progress-bar {
+    color: var(--ion-color-tertiary);
     padding-top: 10px;
     margin: 10px 0;
-    color: var(--ion-color-light);
+
 }
 
 ion-button {
