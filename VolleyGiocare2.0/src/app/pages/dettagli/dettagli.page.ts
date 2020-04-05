@@ -17,8 +17,6 @@ export class DettagliPage implements OnInit {
     private partita$: Observable<Partita>;
     private partita = new Partita();
     private idGiocatore;
-    private idPartita;
-    private partita2 = new Partita();
 
     constructor(private partitaService: PartitaService,
                 private activatedRoute: ActivatedRoute,
@@ -32,20 +30,9 @@ export class DettagliPage implements OnInit {
 
         this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
             this.partita$ = this.partitaService.cerca_tramite_id(parseInt(params.get('id'), 0));
-          //  console.log(params);
         });
-
-       // console.log(this.match$);
-
         this.partita$.subscribe(res => {
-            this.partita2.id = res[0].id;
-            console.log(this.partita2.id);
             this.partita = res[0];
-            console.log(res);
-            // console.log(res[0].titolo);
-            // this.m.titolo = res[0].titolo;
-            //  this.m = res[0];
-
         });
     }
 
@@ -54,8 +41,7 @@ export class DettagliPage implements OnInit {
             this.idGiocatore = res1.id;
         });
 
-        this.idPartita = this.partita2.id;
-        this.partitaService.partecipa(this.idGiocatore, this.idPartita).subscribe(res => {
+        this.partitaService.partecipa(this.idGiocatore, this.partita.id).subscribe(res => {
            // console.log(res);
         });
         this.router.navigateByUrl('/tabs');

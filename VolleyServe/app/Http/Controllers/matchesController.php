@@ -58,9 +58,8 @@ class matchesController extends Controller
                 'numero_giocatori' => 'required|string',
                 'descrizione' => 'required|string',
                 'data_ora' => 'required|date',
-                'ora' => 'required | date',
                 'tipo' => 'required|string',
-                'organizzatore' => 'string'
+                'organizzatore' => 'integer'
             ]);
 
             $match = new Match;
@@ -69,10 +68,10 @@ class matchesController extends Controller
             $match->numero_giocatori = $request->numero_giocatori;
             $match->descrizione = $request->descrizione;
             $match->data_ora = $request->data_ora;
-            $match->ora = $request->ora;
             $match->tipo = $request->tipo;
             $match->organizzatore = $request->org;
             $match->save();
+
             return response()->json([
                 'message' => 'Successfully created!'
             ], 201);
@@ -134,6 +133,41 @@ class matchesController extends Controller
 
     }
 
+    public function rimuovi_partecipante (Request $request, $idpartita) {
+
+        $access_token = $request->header('token');
+
+        $idUtente = DB::table('users')
+            ->select('id')
+            ->where('users.token', '=', $access_token)
+            ->value('id');
+
+
+        DB::table('partecipation')
+            ->where('id_partita', '=', $idpartita)
+            ->where('id_giocatore', '=', $idUtente)
+            ->delete();
+
+        DB::table('match')
+            ->where('id', '=', $idpartita)
+            ->increment('numero_giocatori');
+
+        return response()->json([
+            'message' => 'Partecipazione cancellata correttamente'
+        ]);
+
+    }
+    public function elimina_partita($id_partita) {
+
+        DB::table('match')
+            ->where('id','=', $id_partita)
+            ->delete();
+
+        return response()->json([
+            'message' => 'Partita cancellata correttamente'
+        ]);
+    }
+
     public function partite_terminate(Request $request)
     {
         $access_token = $request->header('token');
@@ -191,7 +225,9 @@ class matchesController extends Controller
                 'id_partita'=> $idP,
             ]);
 
-        DB::table('match')->decrement('numero_giocatori');
+        DB::table('match')
+            ->where('match.id', '=', $idP)
+            ->decrement('numero_giocatori');
 
         return response()->json([
             'message' => 'Wow!'
@@ -209,7 +245,7 @@ class matchesController extends Controller
 
         $players= DB::table('partecipation')
             ->join('users', 'partecipation.id_giocatore', '=', 'users.id')
-            ->select('users.name', 'users.surname', 'users.id')
+            ->select('users.nome', 'users.cognome', 'users.id')
             ->where('partecipation.id_partita', '=', $idpartita)
             ->where('partecipation.id_giocatore', '<>', $idUtente)
             ->distinct()

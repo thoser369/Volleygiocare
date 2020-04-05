@@ -19,7 +19,7 @@ class ProfileController extends Controller
 
         DB::table('users')
             ->where('id', '=', $idUtente)
-            ->update(['users.description'=> $request->input('descrizione')
+            ->update(['users.descrizione'=> $request->input('descrizione')
 
             ]);
 
@@ -50,7 +50,7 @@ class ProfileController extends Controller
         $commenti->map(function ($item, $key) {
             $item->id_giocatore_votante= DB::table('users')
                 ->where('id', '=', $item->utente_id)
-                ->select('users.name', 'users.surname')
+                ->select('users.nome', 'users.cognome')
                 ->distinct()
                 ->first();
 

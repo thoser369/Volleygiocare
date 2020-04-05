@@ -31,12 +31,17 @@ export class ProfiloPage implements OnInit {
           const media4 = 'media4';
           const media5 = 'media5';
           this.media = res[media];
-          this.media1 = res[media1] / 10;
-          this.media2 = res[media2] / 10;
-          this.media3 = res[media3] / 10;
-          this.media4 = res[media4] / 10;
-          this.media5 = res[media5] / 10;
+          this.media1 = res[media1];
+          this.media2 = res[media2];
+          this.media3 = res[media3];
+          this.media4 = res[media4];
+          this.media5 = res[media5];
           this.numero_recensioni = res[media1] + res[media2] + res[media3] + res[media4] + res[media5];
+          this.media1 = this.media1 / this.numero_recensioni;
+          this.media2 = this.media2 / this.numero_recensioni;
+          this.media3 = this.media3 / this.numero_recensioni;
+          this.media4 = this.media4 / this.numero_recensioni;
+          this.media5 = this.media5 / this.numero_recensioni;
           if (this.media === null) this.media = 0;
       });
       this.utenteService.numero_partite_giocate().subscribe(res => {

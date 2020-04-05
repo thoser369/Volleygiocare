@@ -15,7 +15,7 @@
         <strong class="text08"> Compila i seguenti campi:</strong>
     </div>
 
-    <form [formGroup]="newMatchFormModel" class="list-form">
+    <form [formGroup]="nuovaPartitaFormModel" class="list-form">
     <ion-list>
 
         <ion-item class="ion-padding-end ion-align-items-start" >
@@ -40,24 +40,22 @@
             <ion-textarea placeholder="{{'INSERISCI_DESCRIZIONE'| translate}}" formControlName="descrizione" maxlength="100"></ion-textarea>
         </ion-item>
 
-        <ion-item class="ion-padding-end ion-align-items-start" >
-            <ion-label>Data </ion-label>
-            <ion-datetime  placeholder="Seleziona"
-                          display-format="DD MMMM YYYY"
-                           [ngModel]="datap.toISOString()"
-                           (ionChange)="cambio($event)" formControlName="data_ora"
-                            value="Seleziona"></ion-datetime>
+        <ion-item class="ion-padding-end ion-align-items-start">
+            <ion-label>{{'DATA_ORA' | translate}} </ion-label>
+            <ion-datetime placeholder="{{'SELECT' | translate}}"
+                          display-format="DD MMM YYYY, HH:mm"
+                          formControlName="data_ora"
+                          min="{{minDate}}" max="2030-12-01"
+                          monthShortNames='Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic'
+                          doneText="{{'OKOPTION' | translate}}"
+                          cancelText="{{'ANNULLA' | translate}}"></ion-datetime>
         </ion-item>
 
-        <ion-item class="ion-padding-end ion-align-items-start">
-            <ion-label>Ora</ion-label>
-            <ion-datetime  displayFormat="h:mm" [ngModel]="orap.toISOString()" pickerFormat="h:mm "   formControlName="ora"  (ionChange)="cambioo($event)" ></ion-datetime>
-        </ion-item>
 
         <ion-list>
             <ion-item>
                 <ion-label>Tipo</ion-label>
-                <ion-select placeholder="{{'SELECT' | translate}}" (ionChange)="changeL($event)" formControlName="tipo">
+                <ion-select placeholder="{{'SELECT' | translate}}" formControlName="tipo">
                     <ion-select-option value="volley"> Volley </ion-select-option>
                     <ion-select-option value="beach">Beach</ion-select-option>
                 </ion-select>
@@ -68,7 +66,7 @@
     </ion-list>
     </form>
 
-    <div margin-top="40px" class="ion-padding-top">
+    <div class="ion- margin-top=" class="ion-padding-top">
         <ion-button icon-left size="medium" expand="full" shape="round" color="primary" (click)="onCreateNew()"  tappable>
             <ion-icon name="log-in" class="ion-padding-end" ></ion-icon>
             CREA PARTITA

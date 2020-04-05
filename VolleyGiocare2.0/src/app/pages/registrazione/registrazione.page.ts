@@ -25,10 +25,10 @@ export class RegistrazionePage implements OnInit {
 
     ngOnInit() {
         this.signUpFormModel = this.formBuilder.group({
-            fName: ['', Validators.compose([
+            nome: ['', Validators.compose([
                 Validators.required
             ])],
-            lName: ['', Validators.compose([
+            cognome: ['', Validators.compose([
                 Validators.required
             ])],
             email: ['', Validators.compose([
@@ -37,10 +37,10 @@ export class RegistrazionePage implements OnInit {
             password: ['', Validators.compose([
                 Validators.required
             ])],
-            phone: ['', Validators.compose([
+            numero_telefonico: ['', Validators.compose([
                 Validators.required
             ])],
-            favourite_role: [Validators.compose([
+            ruolo: [Validators.compose([
                 Validators.required]
             )]
         });

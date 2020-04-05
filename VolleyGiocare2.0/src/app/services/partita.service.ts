@@ -4,21 +4,8 @@ import {URL} from '../constants';
 import {Observable} from 'rxjs';
 import {Partita} from '../model/partita.model';
 import {Utente} from '../model/utente.model';
-import {map} from 'rxjs/operators';
 import {UtenteService} from './utente.service';
 import {Feedback} from '../model/feedback.model';
-
-
-export interface NewMatch {
-    titolo: string;
-    luogo: string;
-    numero_giocatori: string;
-    descrizione: string;
-    data_ora: Date;
-    ora: Date;
-    tipo: string;
-    org: Utente;
-}
 
 
 @Injectable({
@@ -26,8 +13,6 @@ export interface NewMatch {
 })
 
 export class PartitaService {
-    private user = new Utente();
-    private idU = this.user.id;
 
     constructor(private http: HttpClient, private utenteService: UtenteService) {
     }
@@ -51,28 +36,8 @@ export class PartitaService {
     }
 
 
-    create(nm: NewMatch) {
-        const p = new Date(nm.data_ora);
-        const o = new Date(nm.ora);
-
-        const params = new HttpParams()
-            // .set('org', nm.org)
-            .set('titolo', nm.titolo)
-            .set('luogo', nm.luogo)
-            .set('numero_giocatori', nm.numero_giocatori)
-            .set('descrizione', nm.descrizione)
-            .set('data_ora', p.toDateString())
-            .set('ora', o.toTimeString())
-            .set('tipo', nm.tipo)
-            .set('organizzatore', String(nm.org));
-        console.log(params);
-
-
-        // const signUpUrl = `${URL.SIGNUP}/?${params}`;
-        return this.http.post<Partita>(URL.NUOVAPARTITA, nm, {observe: 'response'}).pipe(
-            map((resp: HttpResponse<Partita>) => {
-                console.log(resp);
-            }));
+    create(nuovapartita: Partita) {
+        return this.http.post<Partita>(URL.NUOVAPARTITA, nuovapartita);
     }
 
 
@@ -83,7 +48,6 @@ export class PartitaService {
     partecipa(idGiocatore, idPartita) {
         const apiPart = `${URL.PARTECIPAZIONE}/${idGiocatore}/${idPartita}`;
         return this.http.get<Partita>(apiPart);
-        console.log('chiamata');
 
     }
     cercaGiocatori(partitaID: number): Observable<Utente[]> {
@@ -101,5 +65,13 @@ export class PartitaService {
     getFeedback(idpartita, idgiocatore) {
         const getfeedbackurl = `${URL.GETFEEDBACK}/${idpartita}/${idgiocatore}`;
         return this.http.get(getfeedbackurl);
+    }
+    rimuoviPartecipante(id_partita: number) {
+        const apiURL = `${URL.RIMUOVIPARTECIPANTE}/${id_partita}`;
+        return this.http.delete(apiURL);
+    }
+    eliminapartita(id_partita: number) {
+        const apiURL = `${URL.ELIMINAPARTITA}/${id_partita}`;
+        return this.http.delete(apiURL);
     }
 }

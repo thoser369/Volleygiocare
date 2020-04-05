@@ -33,6 +33,10 @@ Route::get('/api/terminated', 'matchesController@partite_terminate');
 
 Route::post('/api/updateDescription', 'ProfileController@updateDescr');
 
+Route::delete('/api/rimuovipartecipante/{idpartita}', 'matchesController@rimuovi_partecipante');
+
+Route::delete('/api/eliminapartita/{idpartita}', 'matchesController@elimina_partita');
+
 Route::get('api/feedbackP/{id}', 'matchesController@feedbackPlayers');
 
 Route::post('api/inviafeedback', 'feedbackController@inviafeedback');

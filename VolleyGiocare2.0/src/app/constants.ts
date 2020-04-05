@@ -24,6 +24,8 @@ export const URL = {
     MIEPARTITE: URL_BASE + '/mymatches', //
     PARTITETERMINATE: URL_BASE + '/terminated', //
     AGGIUNGIDESCRIZIONE: URL_BASE + '/updateDescription', //
+    RIMUOVIPARTECIPANTE: URL_BASE + '/rimuovipartecipante', //
+    ELIMINAPARTITA: URL_BASE + '/eliminapartita',
     FEEDBACKPARTITA: URL_BASE + '/feedbackP', //
     INVIAFEEDBACK: URL_BASE + '/inviafeedback', //
     GETFEEDBACK: URL_BASE + '/getfeedback', //

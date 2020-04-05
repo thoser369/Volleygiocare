@@ -30,13 +30,12 @@ class AuthController extends Controller
         DB::table('users')->where('email', $request->input('email'))->update(['token' => "$token"]);
 
         return response(
-            ['nome' => $user->name,
-                'cognome' => $user->surname,
+            ['nome' => $user->nome,
+                'cognome' => $user->cognome,
                 'id' => $user->id,
-                'partite_totali' => $user->partite_totali,
                 'descrizione' => $user->descrizione,
                 'email' => $user -> email,
-                'ruolo' => $user ->favourite_role
+                'ruolo' => $user ->ruolo
 
 
             ], 200)->withHeaders([ 'token' => $token]);
@@ -51,20 +50,20 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'fName' => 'required|string',
-            'lName' => 'required|string',
+            'nome' => 'required|string',
+            'cognome' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|string',
-            'phone' => 'required|string',
-            'favourite_role' => 'required|string'
+            'numero_telefonico' => 'required|string',
+            'ruolo' => 'required|string'
         ]);
         $user = new User;
-        $user->name = $request->fName;
-        $user->surname = $request->lName;
+        $user->nome = $request->nome;
+        $user->cognome = $request->cognome;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->phone = $request->phone;
-        $user->favourite_role = $request->favourite_role;
+        $user->numero_telefonico = $request->numero_telefonico;
+        $user->ruolo = $request->ruolo;
         $user->save();
         return response()->json([
             'message' => 'Successfully created user!'

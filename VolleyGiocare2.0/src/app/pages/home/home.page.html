@@ -18,12 +18,12 @@
     <ion-list>
         <ion-card *ngFor="let partita of (partite$ | async)" class="back_cards" >
             <ion-card-header>
-                <ion-card-subtitle *ngFor="let obj of partita.organizzatore"> <div ><ion-icon name="person" ></ion-icon>{{" " + obj['name'] + " " +obj['surname']}}</div> </ion-card-subtitle>
+                <ion-card-subtitle *ngFor="let organizzatore of partita.organizzatore"> <div ><ion-icon name="person" ></ion-icon>{{" " + organizzatore['nome'] + " " +organizzatore['cognome']}}</div> </ion-card-subtitle>
                 <ion-card-title class="tit"> {{partita.titolo}} </ion-card-title>
             </ion-card-header>
 
             <ion-card-content>
-                {{(partita.data_ora | date:'dd/MM/yyyy' )+ " " +( partita.ora | date: 'HH:mm')}}
+                {{(partita.data_ora | date:'dd/MM/yyyy' )+ " " +( partita.data_ora | date: 'HH:mm')}}
                 <ion-row class="ion-no-padding">
                     <ion-col class="ion-text-left ion-padding-start=30px">
                         <ion-button class="ion-float-end" color="primary" icon-start size="small" [routerLink]="['/dettagli', partita.id]" routerDirection="forward" >

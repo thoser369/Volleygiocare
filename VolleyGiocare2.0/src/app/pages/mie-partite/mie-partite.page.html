@@ -31,14 +31,24 @@
                          <ion-icon name="calendar" icon="left"></ion-icon>
                          {{(partite_dagiocare.data_ora| date:'dd/MM/yyyy')}}
                          <ion-icon name="time" class="ion-padding-start"></ion-icon>
-                         {{partite_dagiocare.ora|date: 'hh:mm'}}
+                         {{partite_dagiocare.data_ora|date: 'hh:mm'}}
                          <ion-icon name="globe" class="ion-padding-start"></ion-icon>
                          {{partite_dagiocare.luogo}}
                          <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
                          <ion-row class="ion-no-padding">
                              <ion-col class="ion-text-left ion-padding-start=30px">
                                  <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
-                                 {{"   " + partite_dagiocare.organizzatore.id + " " }}
+                                 {{"   " + partite_dagiocare.organizzatore.nome + " " }}
+                                 <ion-button class="ion-float-end bordo ion-margin-top ion-margin-end ion-margin-start" expand="full" shape="round" color="primary"
+                                             size="small" (click)="eliminapartita(partite_dagiocare)" *ngIf="partite_dagiocare.organizzatore.id == utente$.getValue().id">
+                                     <ion-icon slot="start" name='create'></ion-icon>
+                                     <b> {{'ELIMINA_PARTITA' | translate}}</b>
+                                 </ion-button>
+                                 <ion-button class="ion-float-end bordo ion-margin-top ion-margin-end ion-margin-start" expand="full" shape="round" color="primary"
+                                             size="small" (click)="rimuoviPartecipante(partite_dagiocare)" *ngIf="partite_dagiocare.organizzatore.id != utente$.getValue().id">
+                                     <ion-icon slot="start" name='create'></ion-icon>
+                                     <b> {{'RIMUOVI_PARTECIPAZIONE' | translate}}</b>
+                                 </ion-button>
                              </ion-col>
                          </ion-row>
                      </ion-card-content>
@@ -68,14 +78,14 @@
                                 <ion-icon name="calendar" icon="left"></ion-icon>
                                 {{(partite_terminate.data_ora| date:'dd/MM/yyyy')}}
                                 <ion-icon name="time" class="ion-padding-start"></ion-icon>
-                                {{partite_terminate.ora|date: 'HH:mm'}}
+                                {{partite_terminate.data_ora|date: 'HH:mm'}}
                                 <ion-icon name="globe" class="ion-padding-start"></ion-icon>
                                 {{partite_terminate.luogo}}
                                 <ion-item-divider class="ion-no-margin ion-no-padding"></ion-item-divider>
                                 <ion-row class="ion-no-padding">
                                     <ion-col class="ion-text-left ion-padding-start=30px">
                                         <ion-icon name="person" class="ion-float-start ion-margin-end"></ion-icon>
-                                        {{"   " + partite_terminate.organizzatore.id + "" }}
+                                        {{"   " + partite_terminate.organizzatore.nome + "" }}
                                         <ion-button class="ion-float-end bordo" expand="full" shape="round" color="primary"
                                                     size="small"
                                                     [routerLink]="['/giocatori', partite_terminate.id]" routerDirection="forward">

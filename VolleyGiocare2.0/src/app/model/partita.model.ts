@@ -6,7 +6,6 @@ export class Partita {
     descrizione: string;
     // tslint:disable-next-line:variable-name
     data_ora: Date;
-    ora: Date;
     luogo: string;
     // tslint:disable-next-line:variable-name
     numero_giocatori: number;

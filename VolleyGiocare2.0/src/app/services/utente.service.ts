@@ -11,10 +11,10 @@ import {Feedback} from '../model/feedback.model';
 export interface Account {
     email: string;
     password: string;
-    fName: string;
-    lName: string;
-    phone: string;
-    favourite_role: string;
+    nome: string;
+    cognome: string;
+    numero_telefonico: string;
+    ruolo: string;
 }
 
 export interface LoginAccount {
@@ -52,7 +52,7 @@ export class UtenteService {
         return this.http.post<Utente>(URL.LOGIN, loginAccount, {observe: 'response'}).pipe(
             map((resp: HttpResponse<Utente>) => {
                 const token = resp.headers.get(X_AUTH);
-                console.log(token);
+                // console.log(token);
                 this.storage.set(AUTH_TOKEN, token);
                 this.authToken = token;
                 // Utente memorizzato nello storage in modo tale che se si vuole cambiare il
@@ -97,10 +97,10 @@ export class UtenteService {
         const params = new HttpParams()
             .set('email', account.email)
             .set('password', account.password)
-            .set('fName', account.fName)
-            .set('lName', account.lName)
-            .set('phone', account.phone)
-            .set('favourite_role', account.favourite_role.toString());
+            .set('nome', account.nome)
+            .set('cognome', account.cognome)
+            .set('numero_telefonico', account.numero_telefonico)
+            .set('ruolo', account.ruolo.toString());
 
       /*  console.log(params.get('fName'));
         console.log(params.get('lName'));

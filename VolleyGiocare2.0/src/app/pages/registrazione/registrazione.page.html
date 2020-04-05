@@ -21,12 +21,12 @@
   <form [formGroup]="signUpFormModel" class="list-form">
   <ion-item class="text08">
    <ion-icon name="person" class="ion-padding-end ion-align-items-start" ></ion-icon>
-    <ion-input  placeholder="Nome" class="ion-padding-start"   formControlName="fName"></ion-input>
+    <ion-input  placeholder="Nome" class="ion-padding-start"   formControlName="nome"></ion-input>
   </ion-item>
 
   <ion-item class="text08">
     <ion-icon name="person" class="ion-padding-end ion-align-items-start" ></ion-icon>
-    <ion-input  placeholder="Cognome" formControlName="lName"></ion-input>
+    <ion-input  placeholder="Cognome" formControlName="cognome"></ion-input>
   </ion-item>
 
 
@@ -42,13 +42,13 @@
 
     <ion-item class="text08">
       <ion-icon name="call" class="ion-padding-end ion-align-items-start" ></ion-icon>
-      <ion-input  placeholder="Telefono" class="ion-padding-start"  formControlName="phone"></ion-input>
+      <ion-input  placeholder="Telefono" class="ion-padding-start"  formControlName="numero_telefonico"></ion-input>
     </ion-item>
 
   <ion-list>
     <ion-item>
       <ion-label>{{'FAV_ROLE' | translate}}</ion-label>
-      <ion-select placeholder="{{'SELECT' | translate}}" (ionChange)="changeL($event)" formControlName="favourite_role">
+      <ion-select placeholder="{{'SELECT' | translate}}" (ionChange)="changeL($event)" formControlName="ruolo">
         <ion-select-option value="palleggiatore">{{'PALLEGGIATORE' | translate}}</ion-select-option>
         <ion-select-option value="libero">{{'LIBERO' | translate}}</ion-select-option>
         <ion-select-option value="martello">{{'MARTELLO' | translate}}</ion-select-option>

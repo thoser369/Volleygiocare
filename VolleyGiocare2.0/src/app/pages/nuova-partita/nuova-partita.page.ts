@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {PartitaService, NewMatch} from '../../services/partita.service';
+import {PartitaService} from '../../services/partita.service';
 import {NavController} from '@ionic/angular';
 import {Utente} from '../../model/utente.model';
 import {UtenteService} from '../../services/utente.service';
+import {Partita} from '../../model/partita.model';
 
 @Component({
     selector: 'app-new-match',
@@ -11,10 +12,9 @@ import {UtenteService} from '../../services/utente.service';
     styleUrls: ['./nuova-partita.page.scss'],
 })
 export class NuovaPartitaPage implements OnInit {
-    datap: Date = new Date();
-    orap: Date = new Date();
+    private minDate = new Date().toISOString();
     private utente = new Utente();
-    private newMatchFormModel: FormGroup;
+    private nuovaPartitaFormModel: FormGroup;
 
     constructor(private formBuilder: FormBuilder,
                 private partitaService: PartitaService,
@@ -28,7 +28,7 @@ export class NuovaPartitaPage implements OnInit {
            // console.log(this.user.id);
         });
 
-        this.newMatchFormModel = this.formBuilder.group({
+        this.nuovaPartitaFormModel = this.formBuilder.group({
             titolo: ['', Validators.compose([
                 Validators.required
             ])],
@@ -41,9 +41,6 @@ export class NuovaPartitaPage implements OnInit {
             data_ora: ['', Validators.compose([
                 Validators.required
             ])],
-            ora: ['', Validators.compose([
-                Validators.required
-            ])],
             tipo: ['Volley', Validators.compose([
                 Validators.required
             ])],
@@ -54,27 +51,12 @@ export class NuovaPartitaPage implements OnInit {
         });
     }
 
-    cambio(event) {
-       // console.log('ionChange', event);
-        const d = new Date(event.detail.value);
-       // console.log(d.toDateString());
-    }
-
-    cambioo(event) {
-        const ora = event.detail.value;
-      //  console.log(ora);
-    }
-
-    changeL(event) {
-      //  console.log(event.detail.value);
-    }
-
     onCreateNew() {
        // console.log(this.user.id);
-        this.newMatchFormModel.patchValue({org: this.utente.id});
-        const nuova_partita: NewMatch = this.newMatchFormModel.value;
+        this.nuovaPartitaFormModel.patchValue({org: this.utente.id});
+        const nuova_partita: Partita = this.nuovaPartitaFormModel.value;
         this.partitaService.create(nuova_partita).subscribe(() => {
-            this.newMatchFormModel.reset();
+            this.nuovaPartitaFormModel.reset();
             this.navController.navigateRoot('/tabs/home').then((result) => {
                 this.partitaService.aggiungi_organizzatore().subscribe(res => {
                    // console.log(res);
