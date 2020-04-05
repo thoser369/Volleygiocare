@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">{{'PROFILE_PAGE' | translate}}</ion-title>
+    <ion-title class="ion-text-center">{{'PROFILO_PAGE' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -34,7 +34,7 @@
     <ion-row>
       <ion-col>
         <div class ="ion-margin-start">
-          <ion-text color="primary"> <p> <b>Ruolo preferito: </b></p> </ion-text>
+          <ion-text color="primary"> <p> <b>{{'RUOLO_PREFERITO'|translate}}: </b></p> </ion-text>
           <ion-chip color="quainter" class ="ion-margin-top">
             <ion-avatar>
               <img src="/assets/images/martello.jpg">
@@ -44,7 +44,7 @@
       </ion-col>
       <ion-col>
         <div class="ion-margin-start padding-bottom">
-          <ion-text color="primary"> <p class="ion-text-center"> <b>Partite giocate: </b></p> </ion-text></div>
+          <ion-text color="primary"> <p class="ion-text-center"> <b>{{'PARTITE_GIOCATE'|translate}}: </b></p> </ion-text></div>
         <div class="ion-margin-start">
           <ion-text class="text15" > <p class="ion-margin ion-text-center"> <b> {{numero_partite_giocate}} </b></p></ion-text>
         </div>
@@ -54,7 +54,7 @@
 
 
   <br><br>
-  <ion-label class="ion-margin-start" color="light"> <b> Valutazioni e recensioni</b></ion-label>
+  <ion-label class="ion-margin-start" color="light"> <b>{{"VALUTAZIONI_RECENSIONI"|translate}} </b></ion-label>
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -67,7 +67,7 @@
             <ion-icon *ngIf="media<=3" name="star-outline"></ion-icon><ion-icon *ngIf="media>3&&media<4" name="star-half"></ion-icon><ion-icon *ngIf="media>4||media==4" name="star"></ion-icon>
             <ion-icon *ngIf="media<=4" name="star-outline"></ion-icon><ion-icon *ngIf="media>4&&media<5" name="star-half"></ion-icon><ion-icon *ngIf="media>5||media==5" name="star"></ion-icon>
             <div class="ion-no-margin ion-no-padding ion-text-center">
-              <p class="text08" >recensioni: {{numero_recensioni}}</p>
+              <p class="text08" >{{"RECENSIONI"|translate}}: {{numero_recensioni}}</p>
             </div>
           </div>
         </ion-item>
@@ -85,7 +85,7 @@
   </ion-grid>
   <ion-list id="list">
     <ion-list-header>
-      Commenti recenti
+      {{"COMMENTI_RECENTI"|translate}}
     </ion-list-header>
 
     <ion-item *ngFor="let f of feedback$ | async">

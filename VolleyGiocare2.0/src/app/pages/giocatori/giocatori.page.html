@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar color="primary">
-        <ion-title class="ion-text-center">GIOCATORI_TITOLO</ion-title>
+        <ion-title class="ion-text-center">{{'GIOCATORI_PAGE' | translate}}</ion-title>
         <ion-buttons slot="start">
             <ion-back-button defaultHref="/tabs/mie-partite" icon="arrow-round-back"></ion-back-button>
         </ion-buttons>
@@ -9,7 +9,7 @@
 
 <ion-content>
     <section class="ion-padding">
-        <ion-text class="ion-padding-top ion-margin"><b>GIOCATORI</b></ion-text>
+        <ion-text class="ion-padding-top ion-margin"><b>{{'GIOCATORI'|translate}}</b></ion-text>
     </section>
 
     <ion-grid>
@@ -24,7 +24,7 @@
                         <ion-col>
                             <ion-button class="bordo"  shape="round" color="primary"
                                         size="small" (click)="apriVotazione(g)" type="submit">
-                                <b> VOTA</b>
+                                <b> {{'VOTA'| translate}}</b>
                             </ion-button>
                         </ion-col>
                     </ion-row>

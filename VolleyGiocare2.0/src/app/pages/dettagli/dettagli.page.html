@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar color="primary">
-        <ion-title class="ion-text-center">{{'DETAIL_PAGE' | translate}}</ion-title>
+        <ion-title class="ion-text-center">{{'DETTAGLI_PAGE' | translate}}</ion-title>
         <ion-buttons slot="start">
             <ion-back-button defaultHref="/tabs/home" icon="arrow-round-back"></ion-back-button>
         </ion-buttons>
@@ -11,17 +11,17 @@
 
     <ion-card>
         <ion-card-header>
-            <ion-card-title class="text-dark"> {{'TITOLO_D' | translate}} </ion-card-title>
+            <ion-card-title class="text-dark"> {{'DETTAGLI_PARTITA' | translate}} </ion-card-title>
         </ion-card-header>
         <ion-card-content class="dett">
 
-            <b>{{'DESCRIZIONE_D' | translate}}</b> {{" "+ partita.descrizione +  ""}}
+            <b>{{'DESCRIZIONE_DETTAGLI' | translate}}:</b> {{" "+ partita.descrizione +  ""}}
         <br>
             <br>
-            <b>{{'NUMERO_GIOCATORI_RICHIESTI' | translate}}</b> {{" " + partita.numero_giocatori + " "}}
+            <b>{{'NUMERO_GIOCATORI_RICHIESTI_DETTAGLI' | translate}}:</b> {{" " + partita.numero_giocatori + " "}}
         <br>
             <br>
-            <b>{{'LUOGO_D' | translate}}</b> {{" "+ partita.luogo +" "}}
+            <b>{{'LUOGO_DETTAGLI' | translate}} :</b> {{" "+ partita.luogo +" "}}
         </ion-card-content>
     </ion-card>
 
@@ -29,7 +29,7 @@
     <div class="dettagli" >
         <ion-button *ngIf="partita.numero_giocatori > 0 " icon-left size="medium" expand="full" shape="round" color="primary" (click)="onPartecipa()"  tappable>
             <ion-icon name="heart"></ion-icon>
-            Partecipa
+            {{'PARTECIPA' | translate}}
         </ion-button>
     </div>
 

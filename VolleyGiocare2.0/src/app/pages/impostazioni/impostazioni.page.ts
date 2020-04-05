@@ -15,7 +15,7 @@ export class ImpostazioniPage implements OnInit {
   }
 
   changeL(event) {
-    console.log(event.detail.value);
+    // console.log(event.detail.value);
     if (event.detail.value === 'it') {
       this.translateService.setDefaultLang('it');
       this.translateService.use('it');
