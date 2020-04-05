@@ -45,11 +45,15 @@ export class ProfiloPage implements OnInit {
             this.media4 = res[media4];
             this.media5 = res[media5];
             this.numero_recensioni = res[media1] + res[media2] + res[media3] + res[media4] + res[media5];
-            this.media1 = this.media1 / this.numero_recensioni;
-            this.media2 = this.media2 / this.numero_recensioni;
-            this.media3 = this.media3 / this.numero_recensioni;
-            this.media4 = this.media4 / this.numero_recensioni;
-            this.media5 = this.media5 / this.numero_recensioni;
+            if (this.numero_recensioni !== 0) {
+             this.media1 = this.media1 / this.numero_recensioni;
+             this.media2 = this.media2 / this.numero_recensioni;
+             this.media3 = this.media3 / this.numero_recensioni;
+             this.media4 = this.media4 / this.numero_recensioni;
+             this.media5 = this.media5 / this.numero_recensioni;
+            } else {
+                this.media1 = this.media2 = this.media3 = this.media4 = this.media5 = 0;
+              }
             if (this.media === null) this.media = 0;
         });
         this.utenteService.numero_partite_giocate().subscribe(res => {

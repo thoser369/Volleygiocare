@@ -83,7 +83,7 @@ export class RegistrazionePage implements OnInit {
     }
 
     changeL(event) {
-        console.log(event.detail.value);
+        // console.log(event.detail.value);
     }
 
     async showLoginError(errMessage, header) {
