@@ -1,18 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { NuovaPartitaPage } from './nuova-partita.page';
+import {NuovaPartitaPage} from './nuova-partita.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: NuovaPartitaPage
-  }
+    {
+        path: '',
+        component: NuovaPartitaPage
+    }
 ];
 
 @NgModule({
@@ -24,6 +24,7 @@ const routes: Routes = [
         TranslateModule,
         ReactiveFormsModule
     ],
-  declarations: [NuovaPartitaPage]
+    declarations: [NuovaPartitaPage]
 })
-export class NuovaPartitaPageModule {}
+export class NuovaPartitaPageModule {
+}

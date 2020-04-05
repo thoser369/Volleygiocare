@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Routes, RouterModule} from '@angular/router';
+import {IonicModule} from '@ionic/angular';
 
-import { TabsPage } from './tabs.page';
+import {TabsPage} from './tabs.page';
 import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
@@ -61,4 +61,5 @@ const routes: Routes = [
     ],
     declarations: [TabsPage]
 })
-export class TabsPageModule {}
+export class TabsPageModule {
+}

@@ -14,6 +14,7 @@ const routes: Routes = [
         component: GiocatoriPage
     }
 ];
+
 @NgModule({
     imports: [
         CommonModule,

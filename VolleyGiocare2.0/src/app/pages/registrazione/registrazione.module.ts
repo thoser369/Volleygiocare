@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { RegistrazionePage } from './registrazione.page';
+import {RegistrazionePage} from './registrazione.page';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
 import {createTranslateLoader} from '../../app.module';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: RegistrazionePage
-  }
+    {
+        path: '',
+        component: RegistrazionePage
+    }
 ];
 
 @NgModule({
@@ -32,6 +32,7 @@ const routes: Routes = [
         }),
         ReactiveFormsModule
     ],
-  declarations: [RegistrazionePage]
+    declarations: [RegistrazionePage]
 })
-export class RegistrazionePageModule {}
+export class RegistrazionePageModule {
+}

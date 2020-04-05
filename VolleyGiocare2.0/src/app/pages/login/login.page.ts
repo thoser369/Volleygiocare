@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
 
     ngOnInit() {
         this.utenteService.getUtente().subscribe(res => {
-            this.utente = res ;
+            this.utente = res;
         });
         this.loginFormModel = this.formBuilder.group({
             email: ['', Validators.compose([
@@ -63,11 +63,11 @@ export class LoginPage implements OnInit {
 
         const loginAccount: LoginAccount = this.loginFormModel.value;
         this.utenteService.login(loginAccount).subscribe(res => {
-            this.loginFormModel.reset();
-            this.utenteService.getUtente().subscribe(res1 => {
-            });
-            this.navController.navigateRoot('/tabs');
-        },
+                this.loginFormModel.reset();
+                this.utenteService.getUtente().subscribe(res1 => {
+                });
+                this.navController.navigateRoot('/tabs');
+            },
             (err: HttpErrorResponse) => {
                 if (err.status === 401) {
                     console.error('login request error: ' + err.status);

@@ -25,7 +25,7 @@ export class NuovaPartitaPage implements OnInit {
     ngOnInit() {
         this.utenteService.getUtente().subscribe(res => {
             this.utente = res;
-           // console.log(this.user.id);
+            // console.log(this.user.id);
         });
 
         this.nuovaPartitaFormModel = this.formBuilder.group({
@@ -52,19 +52,17 @@ export class NuovaPartitaPage implements OnInit {
     }
 
     onCreateNew() {
-       // console.log(this.user.id);
+        // console.log(this.user.id);
         this.nuovaPartitaFormModel.patchValue({org: this.utente.id});
         const nuova_partita: Partita = this.nuovaPartitaFormModel.value;
         this.partitaService.create(nuova_partita).subscribe(() => {
             this.nuovaPartitaFormModel.reset();
             this.navController.navigateRoot('/tabs/home').then((result) => {
                 this.partitaService.aggiungi_organizzatore().subscribe(res => {
-                   // console.log(res);
+                    // console.log(res);
                 });
             });
         });
-
-
 
 
     }

@@ -11,11 +11,10 @@
     <ion-slides>
         <ion-slide>
             <div class="titolo">
-                <b>{{'MIEPARTITE_DAGIOCARE' | translate}}
-                    <div class="icona">
-                        <ion-icon name="arrow-dropright"></ion-icon>
-                    </div>
-                </b>
+                <b>{{'MIEPARTITE_DAGIOCARE' | translate}}</b>
+                <div class="icona">
+                    <ion-icon name="arrow-dropright"></ion-icon>
+                </div>
             </div>
 
             <ion-list>
@@ -23,7 +22,7 @@
                     <ion-card-header>
                         <ion-card-title class="text-dark">
                             <ion-icon name="clipboard"></ion-icon>
-                            {{partite_dagiocare.titolo}}
+                            <b>{{partite_dagiocare.titolo}}</b>
                         </ion-card-title>
                         <ion-card-subtitle>
                         </ion-card-subtitle>
@@ -75,7 +74,7 @@
                     <ion-card-header>
                         <ion-card-title class="text-dark">
                             <ion-icon name="clipboard"></ion-icon>
-                            {{partite_terminate.titolo}}
+                            <b>{{partite_terminate.titolo}}</b>
                         </ion-card-title>
                         <ion-card-subtitle>
                         </ion-card-subtitle>

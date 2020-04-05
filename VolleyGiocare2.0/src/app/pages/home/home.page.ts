@@ -47,10 +47,10 @@ export class HomePage implements OnInit {
 
         this.partite$ = this.partitaService.listapartite(this.idUtente);
         this.partite$.subscribe(res1 => {
-           // console.log(res1);
+            // console.log(res1);
         });
 
 
-       // console.log(this.idU);
+        // console.log(this.idU);
     }
 }

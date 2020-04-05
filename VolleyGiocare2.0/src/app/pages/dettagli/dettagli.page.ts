@@ -42,10 +42,10 @@ export class DettagliPage implements OnInit {
         });
 
         this.partitaService.partecipa(this.idGiocatore, this.partita.id).subscribe(res => {
-           // console.log(res);
+            // console.log(res);
         });
         this.router.navigateByUrl('/tabs');
-       // this.navController.navigateRoot('/tabs/home');
+        // this.navController.navigateRoot('/tabs/home');
 
 
     }

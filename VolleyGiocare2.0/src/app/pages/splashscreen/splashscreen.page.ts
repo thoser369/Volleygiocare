@@ -8,7 +8,7 @@ import {NavController} from '@ionic/angular';
 })
 export class SplashscreenPage implements OnInit {
 
-    constructor( private navController: NavController) {
+    constructor(private navController: NavController) {
     }
 
     ngOnInit() {

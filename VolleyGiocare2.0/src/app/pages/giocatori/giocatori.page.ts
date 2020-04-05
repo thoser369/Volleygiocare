@@ -35,13 +35,14 @@ export class GiocatoriPage implements OnInit {
         });
     }
 
-     apriVotazione(giocatore: Utente) {
+    apriVotazione(giocatore: Utente) {
         this.partitaService.getFeedback(this.id_partita, giocatore.id).subscribe(res => {
-        const check = 'check';
-        this.votopresente = res[check];
-        this.votazione(giocatore.id);
+            const check = 'check';
+            this.votopresente = res[check];
+            this.votazione(giocatore.id);
         });
     }
+
     async feedback_lasciato() {
         const alert_feedbacklasciato = await this.alertController_feedback_lasciato.create({
             message: 'Giocatore votato!',
@@ -51,6 +52,7 @@ export class GiocatoriPage implements OnInit {
         });
         await alert_feedbacklasciato.present();
     }
+
     async giocatore_gia_votato() {
         const alert_giocatore_votato = await this.alertController_giocatore_votato.create({
             message: 'Hai gia votato questo giocatore!',
@@ -60,82 +62,85 @@ export class GiocatoriPage implements OnInit {
         });
         await alert_giocatore_votato.present();
     }
+
     async votazione(idgiocatore) {
         if (this.votopresente <= 0) {
-        const alert = await this.alertController.create({
-                message: 'Esprimi un giudizio sul livello del giocatore',
-                inputs: [{
-                    name: 'votazione1',
-                    type: 'radio',
-                    label: 'Giocatore scarso',
-                    value: '1',
-                },
-                    {
-                        name: 'votazione2',
+            const alert = await this.alertController.create({
+                    message: 'Esprimi un giudizio sul livello del giocatore',
+                    inputs: [{
+                        name: 'votazione1',
                         type: 'radio',
-                        label: 'Giocatore mediocre',
-                        value: '2',
+                        label: 'Giocatore scarso',
+                        value: '1',
                     },
-                    {
-                        name: 'votazione3',
-                        type: 'radio',
-                        label: 'Giocatore ordinario',
-                        value: '3',
-                    },
-                    {
-                        name: 'votazione4',
-                        type: 'radio',
-                        label: 'Ottimo giocatore',
-                        value: '4',
-                    },
-                    {
-                        name: 'votazione5',
-                        type: 'radio',
-                        label: 'Giocatore eccellente',
-                        value: '5',
-                    }
-                ],
-                buttons: [
-                    {
-                        text: 'Annulla',
-                        role: 'cancel'
-                    },
-                    {
-                        text: 'Invia voto',
-                        handler: async data => {
-                            const alert_commento = await this.alertController_commento.create({
-                                message: 'Scrivi un commento',
-                                inputs: [{
-                                    name: 'commento',
-                                    placeholder: 'Inserisci un commento (facoltativo)'
-                                }],
-                                buttons: [
-                                    {
-                                        text: 'Annulla',
-                                        role: 'cancel'
-                                    },
-                                    {
-                                        text: 'Invia commento',
-                                        handler: data_commento => {
-                                            const feedback = new Feedback();
-                                            feedback.voto = data;
-                                            feedback.commento = data_commento['commento'];
-                                            feedback.id_partita = this.id_partita;
-                                            feedback.id_giocatore_votato = idgiocatore;
-                                            this.partitaService.inviafeedback(feedback).subscribe(res => {
-                                            });
-                                            this.feedback_lasciato();
-                                        }
-                                    }
-                                ]
-                            });
-                            await alert_commento.present();
+                        {
+                            name: 'votazione2',
+                            type: 'radio',
+                            label: 'Giocatore mediocre',
+                            value: '2',
+                        },
+                        {
+                            name: 'votazione3',
+                            type: 'radio',
+                            label: 'Giocatore ordinario',
+                            value: '3',
+                        },
+                        {
+                            name: 'votazione4',
+                            type: 'radio',
+                            label: 'Ottimo giocatore',
+                            value: '4',
+                        },
+                        {
+                            name: 'votazione5',
+                            type: 'radio',
+                            label: 'Giocatore eccellente',
+                            value: '5',
                         }
-                    }
-                ]
-            }
-        );
-        await alert.present();
-        } else { this.giocatore_gia_votato(); }
+                    ],
+                    buttons: [
+                        {
+                            text: 'Annulla',
+                            role: 'cancel'
+                        },
+                        {
+                            text: 'Invia voto',
+                            handler: async data => {
+                                const alert_commento = await this.alertController_commento.create({
+                                    message: 'Scrivi un commento',
+                                    inputs: [{
+                                        name: 'commento',
+                                        placeholder: 'Inserisci un commento (facoltativo)'
+                                    }],
+                                    buttons: [
+                                        {
+                                            text: 'Annulla',
+                                            role: 'cancel'
+                                        },
+                                        {
+                                            text: 'Invia commento',
+                                            handler: data_commento => {
+                                                const feedback = new Feedback();
+                                                feedback.voto = data;
+                                                feedback.commento = data_commento['commento'];
+                                                feedback.id_partita = this.id_partita;
+                                                feedback.id_giocatore_votato = idgiocatore;
+                                                this.partitaService.inviafeedback(feedback).subscribe(res => {
+                                                });
+                                                this.feedback_lasciato();
+                                            }
+                                        }
+                                    ]
+                                });
+                                await alert_commento.present();
+                            }
+                        }
+                    ]
+                }
+            );
+            await alert.present();
+        } else {
+            this.giocatore_gia_votato();
+        }
     }
 }

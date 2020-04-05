@@ -8,20 +8,20 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class ImpostazioniPage implements OnInit {
 
-  constructor(private translateService: TranslateService) {
-  }
-
-  ngOnInit() {
-  }
-
-  changeL(event) {
-    // console.log(event.detail.value);
-    if (event.detail.value === 'it') {
-      this.translateService.setDefaultLang('it');
-      this.translateService.use('it');
-    } else {
-      this.translateService.setDefaultLang('en');
-      this.translateService.use('en');
+    constructor(private translateService: TranslateService) {
     }
-  }
+
+    ngOnInit() {
+    }
+
+    changeL(event) {
+        // console.log(event.detail.value);
+        if (event.detail.value === 'it') {
+            this.translateService.setDefaultLang('it');
+            this.translateService.use('it');
+        } else {
+            this.translateService.setDefaultLang('en');
+            this.translateService.use('en');
+        }
+    }
 }

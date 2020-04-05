@@ -2,6 +2,7 @@
     --ion-safe-area-top: 20px;
     --ion-safe-area-bottom: 22px;
 }
+
 header {
     font-size: 11px;
     font-weight: 600;
@@ -9,10 +10,12 @@ header {
     margin-bottom: 1.25em;
     text-transform: uppercase;
 }
+
 section {
     margin-top: 10em;
     margin-bottom: 2.5em;
 }
+
 section:not(.full-width),
 .full-width > header {
     padding: 0 30px;
